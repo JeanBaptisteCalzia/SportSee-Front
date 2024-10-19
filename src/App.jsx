@@ -11,12 +11,14 @@ function App() {
   return (
     <Router>
       <Header />
-      <SideBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/user/:id" element={<User />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <div className="wrapper">
+        <SideBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/user/:id" element={<User />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { userMainData } from "../../datas/dataMocked";
 import Error from "../../components/Error";
+import * as d3 from "d3";
 
 function User() {
   const params = useParams();

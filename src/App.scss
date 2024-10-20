@@ -83,3 +83,15 @@ p {
   }
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+
+  &__content {
+    width: 70%;
+  }
+}
+
+.key-data {
+  width: 30%;
+}

@@ -1,0 +1,43 @@
+.key-data {
+  ul {
+    list-style-type: none;
+    margin: 0 0;
+    padding: 0 0;
+  }
+  .card {
+    margin-bottom: 2.5rem;
+    background-color: #fbfbfb;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__img {
+      width: 3.75rem;
+      height: 3.75rem;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      border-radius: 6px 6px;
+    }
+
+    &__content {
+      margin-left: 1.5rem;
+      p {
+        font-size: 1.25rem;
+        line-height: 24px;
+        font-weight: bold;
+        color: #282d30;
+      }
+      h3 {
+        margin: 0 0;
+        padding: 0 0;
+        color: #74798c;
+        font-weight: 600;
+        font-size: 0.875rem;
+        line-height: 24px;
+      }
+    }
+  }
+}

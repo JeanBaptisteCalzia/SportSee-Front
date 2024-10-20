@@ -8,7 +8,7 @@ import "./sideBar.scss";
 
 function SideBar() {
   return (
-    <aside>
+    <aside className="side-bar">
       <ul>
         <li>
           <NavLink to="#">

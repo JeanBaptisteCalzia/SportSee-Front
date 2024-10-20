@@ -11,13 +11,13 @@ function Score({ todayScore, data }) {
   return (
     <section className="score">
       <h2>Score</h2>
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={300}>
         <RadialBarChart
-          width={300}
-          height={300}
+          width={150}
+          height={150}
           data={data}
-          innerRadius={160}
-          outerRadius={160}
+          innerRadius={75}
+          outerRadius={75}
           barSize={10}
           startAngle={-270}
           endAngle={90}
@@ -41,7 +41,7 @@ function Score({ todayScore, data }) {
               dominantBaseline="middle"
               className="score__number"
               x="50%"
-              y="50%"
+              y="45%"
             >
               {todayScore * 100} %
             </tspan>

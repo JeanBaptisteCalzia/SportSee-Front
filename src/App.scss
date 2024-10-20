@@ -93,10 +93,21 @@ p {
 .main {
   display: flex;
   flex-direction: row;
+  margin-top: 5rem;
 
   &__content {
     width: calc(70% - 2rem);
     margin-right: 2rem;
+  }
+
+  &__content-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.875rem;
+    row-gap: 1.875rem;
+
+    > section {
+    }
   }
 }
 

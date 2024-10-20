@@ -1,9 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { userMainData } from "../../datas/dataMocked";
+import { userPerformance } from "../../datas/dataMocked";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
+import Performance from "../../components/Performance";
 import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
@@ -13,10 +15,15 @@ function User() {
   const params = useParams();
   const userId = params.id;
 
+  // Main chart
   const currentUser =
     userMainData && userMainData.filter((user) => user.id === parseInt(userId));
-
   const currentId = currentUser.map((id) => id.id);
+
+  // Performance chart
+  const currentUserPerformance =
+    userPerformance &&
+    userPerformance.filter((user) => user.userId === parseInt(userId));
 
   if (parseInt(currentId) !== parseInt(userId)) {
     return <Error />;
@@ -35,7 +42,11 @@ function User() {
             </section>
             <div className="main">
               <div className="main__content">
-                <Score todayScore={todayScore} data={currentUser} />
+                <div className="main__content-top"></div>
+                <div className="main__content-bottom">
+                  <Performance data={currentUserPerformance} />
+                  <Score todayScore={todayScore} data={currentUser} />
+                </div>
               </div>
               <aside className="key-data">
                 <ul>

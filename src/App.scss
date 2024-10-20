@@ -55,3 +55,31 @@ main {
   flex-direction: column;
   padding: 4.25rem 5rem 5rem 6.625rem;
 }
+
+h1 {
+  font-size: 3rem;
+  line-height: 48px;
+  font-weight: 500;
+  color: black;
+  margin: 0 0 2.5rem 0;
+  padding: 0 0;
+
+  span {
+    color: #ff0101;
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 400;
+  color: black;
+  margin: 0 0;
+  padding: 0 0;
+
+  &.lead {
+    font-size: 1.125rem;
+    line-height: 24px;
+  }
+}
+

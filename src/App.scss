@@ -69,6 +69,13 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 500;
+  color: #20253a;
+}
+
 p {
   font-size: 1rem;
   line-height: 24px;
@@ -88,7 +95,8 @@ p {
   flex-direction: row;
 
   &__content {
-    width: 70%;
+    width: calc(70% - 2rem);
+    margin-right: 2rem;
   }
 }
 

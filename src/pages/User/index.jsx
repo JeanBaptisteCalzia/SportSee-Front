@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import { userMainData } from "../../datas/dataMocked";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
+import Score from "../../components/Score";
 import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
-import * as d3 from "d3";
 
 function User() {
   const params = useParams();
@@ -23,7 +23,7 @@ function User() {
   } else {
     return (
       <main>
-        {currentUser.map(({ id, userInfos, keyData }) => (
+        {currentUser.map(({ id, userInfos, keyData, todayScore }) => (
           <div key={id}>
             <section>
               <h1>
@@ -34,7 +34,9 @@ function User() {
               </p>
             </section>
             <div className="main">
-              <div className="main__content"></div>
+              <div className="main__content">
+                <Score todayScore={todayScore} data={currentUser} />
+              </div>
               <aside className="key-data">
                 <ul>
                   <li className="card">
@@ -43,6 +45,7 @@ function User() {
                       icon={iconEnergy}
                       title="Calories"
                       style="#FBEAEA"
+                      unit="kCal"
                     />
                   </li>
                   <li className="card">
@@ -51,6 +54,7 @@ function User() {
                       icon={iconChicken}
                       title="Proteines"
                       style="#E9F4FB"
+                      unit="g"
                     />
                   </li>
                   <li className="card">
@@ -59,6 +63,7 @@ function User() {
                       icon={iconApple}
                       title="Glucides"
                       style="#FBF6E5"
+                      unit="g"
                     />
                   </li>
                   <li className="card">
@@ -67,6 +72,7 @@ function User() {
                       icon={iconCheeseburger}
                       title="Lipides"
                       style="#FBEAEF"
+                      unit="g"
                     />
                   </li>
                 </ul>

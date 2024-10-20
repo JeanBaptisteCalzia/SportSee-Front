@@ -1,0 +1,18 @@
+.score {
+  background-color: #fbfbfb;
+  padding: 1.5rem;
+  position: relative;
+
+  &__number {
+    font-size: 1.625rem;
+    line-height: 26px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__label {
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 500;
+  }
+}

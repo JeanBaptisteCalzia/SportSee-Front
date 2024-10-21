@@ -60,7 +60,11 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  padding: 4.25rem 5rem 5rem 6.625rem;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 4.25rem 5rem 5rem 6.625rem;
+  }
 }
 
 h1 {
@@ -81,6 +85,7 @@ h2 {
   line-height: 24px;
   font-weight: 500;
   color: #20253a;
+  margin: 0 0;
 }
 
 p {
@@ -100,7 +105,11 @@ p {
 .main {
   display: flex;
   flex-direction: row;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
+
+  @media only screen and (min-width: 1024px) {
+    margin-top: 4.5rem;
+  }
 
   &__content {
     width: calc(70% - 2rem);

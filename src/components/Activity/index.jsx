@@ -27,7 +27,7 @@ function Activity({ data }) {
   return (
     <section className="activity">
       <h2>Activité quotidienne</h2>
-      <ResponsiveContainer width="100%" height={140}>
+      <ResponsiveContainer width="100%" height={156}>
         <BarChart
           width={500}
           height={300}

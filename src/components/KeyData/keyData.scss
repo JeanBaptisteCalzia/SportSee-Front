@@ -5,13 +5,17 @@
     padding: 0 0;
   }
   .card {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     background-color: #fbfbfb;
     padding: 2rem 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     border-radius: 8px 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &__img {
       width: 3.75rem;

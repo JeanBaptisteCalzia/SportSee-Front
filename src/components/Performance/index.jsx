@@ -12,7 +12,7 @@ import {
 function Performance({ data }) {
   return (
     <section className="performance">
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={240}>
         <RadarChart cx="50%" cy="50%" data={data[0].data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis dataKey="kind" />

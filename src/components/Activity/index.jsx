@@ -13,8 +13,6 @@ import {
 } from "recharts";
 
 function Activity({ data }) {
-  const sessions = data.map((item) => item.sessions);
-
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -33,7 +31,7 @@ function Activity({ data }) {
         <BarChart
           width={500}
           height={300}
-          data={sessions}
+          data={data[0].sessions}
           margin={{
             top: 20,
             right: 30,

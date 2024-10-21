@@ -11,8 +11,6 @@ import {
 } from "recharts";
 
 function AverageSessions({ data }) {
-  // const averageSessions = data.map((item) => item.sessions);
-
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (

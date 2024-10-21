@@ -13,9 +13,9 @@ function Performance({ data }) {
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height={300}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+        <RadarChart cx="50%" cy="50%" data={data}>
           <PolarGrid radialLines={false} />
-          <PolarAngleAxis dataKey="kind.1" />
+          <PolarAngleAxis dataKey="kind" />
           <PolarRadiusAxis />
           <Radar
             dataKey="value"

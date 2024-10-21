@@ -1,0 +1,15 @@
+.activity {
+  background-color: #fbfbfb;
+  padding: 1.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+
+  .custom-tooltip {
+    background-color: #e60000;
+    padding: 0.5rem 0.5rem;
+
+    &__label {
+      color: white;
+    }
+  }
+}

@@ -11,7 +11,7 @@ function Score({ todayScore, data }) {
   return (
     <section className="score">
       <h2>Score</h2>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={260}>
         <RadialBarChart
           width={150}
           height={150}

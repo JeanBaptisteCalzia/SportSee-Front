@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { userMainData } from "../../datas/dataMocked";
 import { userPerformance } from "../../datas/dataMocked";
 import { userAverageSessions } from "../../datas/dataMocked";
+import { userActivity } from "../../datas/dataMocked";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
 import Performance from "../../components/Performance";
 import AverageSessions from "../../components/AverageSessions";
+import Activity from "../../components/Activity";
 import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
@@ -32,6 +34,11 @@ function User() {
     userAverageSessions &&
     userAverageSessions.filter((user) => user.userId === parseInt(userId));
 
+  // Activity chart
+  const currentUserActivity =
+    userActivity &&
+    userActivity.filter((user) => user.userId === parseInt(userId));
+
   if (parseInt(currentId) !== parseInt(userId)) {
     return <Error />;
   } else {
@@ -49,7 +56,9 @@ function User() {
             </section>
             <div className="main">
               <div className="main__content">
-                <div className="main__content-top"></div>
+                <div className="main__content-top">
+                  <Activity data={currentUserActivity} />
+                </div>
                 <div className="main__content-bottom">
                   <AverageSessions data={currentUserAverageSessions} />
                   <Performance data={currentUserPerformance} />

@@ -10,13 +10,15 @@ import {
 } from "recharts";
 
 function Performance({ data }) {
+  const performance = data.map((item) => item.data);
+
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height={260}>
-        <RadarChart cx="50%" cy="50%" data={data}>
+        <RadarChart cx="50%" cy="50%" data={performance}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis />
+          <PolarRadiusAxis tick={false} hide={true} />
           <Radar
             dataKey="value"
             stroke="#FF0101"

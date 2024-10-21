@@ -10,12 +10,10 @@ import {
 } from "recharts";
 
 function Performance({ data }) {
-  const performance = data.map((item) => item.data);
-
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height={260}>
-        <RadarChart cx="50%" cy="50%" data={performance}>
+        <RadarChart cx="50%" cy="50%" data={data[0].data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis dataKey="kind" />
           <PolarRadiusAxis tick={false} hide={true} />

@@ -7,4 +7,15 @@
     opacity: 0.5;
     color: white;
   }
+
+  .custom-tooltip {
+    background-color: #fff;
+    padding: 0.5rem 0.5rem;
+
+    &__label {
+      color: #000;
+      font-size: 0.85rem;
+      line-height: 24px;
+    }
+  }
 }

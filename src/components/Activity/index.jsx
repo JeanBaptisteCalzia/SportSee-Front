@@ -24,10 +24,14 @@ function Activity({ data }) {
     }
   };
 
+  for (let i = 0; i < data[0].sessions.length; i++) {
+    data[0].sessions[i].day = data[0].sessions[i].day.slice(-1);
+  }
+
   return (
     <section className="activity">
       <h2>Activité quotidienne</h2>
-      <ResponsiveContainer width="100%" height={156}>
+      <ResponsiveContainer width="100%" height={176}>
         <BarChart
           width={500}
           height={300}

@@ -3,12 +3,10 @@ import React from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -49,8 +47,8 @@ function Activity({ data }) {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
+          <CartesianGrid strokeDasharray="2 2" stroke="#DEDEDE" />
+          <XAxis dataKey="day" stroke="#777" axisLine={{ stroke: "#EAF0F4" }} />
           <YAxis yAxisId="left" axisLine={false} tick={false} hide />
           <YAxis
             axisLine={false}
@@ -58,7 +56,7 @@ function Activity({ data }) {
             orientation="right"
             stroke="#9B9EAC"
             type="number"
-            domain={[100, "dataMax"]}
+            domain={["dataMin - 100", "dataMax + 100"]}
           />
           <Tooltip content={<CustomTooltip />} />
           {/* <Legend layout="vertical" verticalAlign="top" align="right" /> */}

@@ -30,7 +30,13 @@ function Activity({ data }) {
 
   return (
     <section className="activity">
-      <h2>Activité quotidienne</h2>
+      <div className="activity__title">
+        <h2>Activité quotidienne</h2>
+        <ul>
+          <li>Poids (kg)</li>
+          <li>Calories brûlées (kCal)</li>
+        </ul>
+      </div>
       <ResponsiveContainer width="100%" height={176}>
         <BarChart
           width={500}
@@ -55,7 +61,7 @@ function Activity({ data }) {
             domain={[100, "dataMax"]}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Legend layout="vertical" verticalAlign="top" align="right" />
+          {/* <Legend layout="vertical" verticalAlign="top" align="right" /> */}
           <Bar
             yAxisId="left"
             dataKey="kilogram"

@@ -7,7 +7,7 @@ import {
   PolarAngleAxis,
 } from "recharts";
 
-function Score({ todayScore, data }) {
+function Score({ todayScore, data, score }) {
   return (
     <section className="score">
       <h2>Score</h2>
@@ -31,7 +31,7 @@ function Score({ todayScore, data }) {
           <RadialBar
             background
             barSize={10}
-            dataKey="todayScore"
+            dataKey={todayScore ? "todayScore" : "score"}
             cornerRadius={100}
             fill="#FF0000"
           />
@@ -43,7 +43,7 @@ function Score({ todayScore, data }) {
               x="50%"
               y="45%"
             >
-              {todayScore * 100} %
+              {todayScore ? todayScore * 100 : score * 100} %
             </tspan>
             <tspan
               textAnchor="middle"

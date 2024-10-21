@@ -44,7 +44,7 @@ function User() {
   } else {
     return (
       <main>
-        {currentUser.map(({ id, userInfos, keyData, todayScore }) => (
+        {currentUser.map(({ id, userInfos, keyData, todayScore, score }) => (
           <div key={id}>
             <section>
               <h1>
@@ -62,7 +62,11 @@ function User() {
                 <div className="main__content-bottom">
                   <AverageSessions data={currentUserAverageSessions} />
                   <Performance data={currentUserPerformance} />
-                  <Score todayScore={todayScore} data={currentUser} />
+                  <Score
+                    todayScore={todayScore}
+                    score={score}
+                    data={currentUser}
+                  />
                 </div>
               </div>
               <aside className="key-data">

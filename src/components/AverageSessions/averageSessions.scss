@@ -1,12 +1,13 @@
 .average-sessions {
   background-color: #ff0000;
-  padding: 1.5rem;
+  padding: 1.5rem 0 0 0;
   position: relative;
   border-radius: 8px 8px;
 
   h2 {
     opacity: 0.5;
     color: white;
+    padding-left: 1.5rem;
   }
 
   .custom-tooltip {

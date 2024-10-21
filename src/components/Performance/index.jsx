@@ -16,7 +16,7 @@ function Performance({ data }) {
         <RadarChart cx="50%" cy="50%" data={data[0].data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis tick={false} hide={true} />
+          <PolarRadiusAxis tick={false} hide={true} axisLine={false} />
           <Radar
             dataKey="value"
             stroke="#FF0101"

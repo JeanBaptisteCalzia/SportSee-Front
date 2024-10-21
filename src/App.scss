@@ -62,7 +62,7 @@ main {
   flex-direction: column;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1200px) {
     padding: 4.25rem 5rem 5rem 6.625rem;
   }
 }
@@ -104,16 +104,22 @@ p {
 
 .main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 2.5rem;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1200px) {
     margin-top: 4.5rem;
+    flex-direction: row;
   }
 
   &__content {
-    width: calc(70% - 2rem);
+    width: 100%;
     margin-right: 2rem;
+    order: 2;
+    @media only screen and (min-width: 1200px) {
+      order: 1;
+      width: calc(70% - 2rem);
+    }
   }
 
   &__content-bottom {
@@ -121,12 +127,15 @@ p {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1.875rem;
     row-gap: 1.875rem;
-
-    > section {
-    }
   }
 }
 
 .key-data {
-  width: 30%;
+  width: 100%;
+  order: 1;
+
+  @media only screen and (min-width: 1200px) {
+    order: 2;
+    width: 30%;
+  }
 }

@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 function AverageSessions({ data }) {
-  const averageSessions = data.map((item) => item.sessions);
+  // const averageSessions = data.map((item) => item.sessions);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -35,7 +35,7 @@ function AverageSessions({ data }) {
         <LineChart
           width="100%"
           height="100%"
-          data={averageSessions}
+          data={data[0].sessions}
           // margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           {/* <CartesianGrid strokeDasharray="3 3" /> */}

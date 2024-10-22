@@ -21,18 +21,7 @@ function AverageSessions({ data }) {
     }
   };
 
-  const [day, setDay] = useState(null);
-  const onMouseMove = (hoveredData) => {
-    const hoveredX = hoveredData.activePayload[0].payload.day;
-    const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
-    if (hoveredData && hoveredData.activePayload) {
-      setDay(index + 1);
-    }
-  };
-
-  const onMouseOut = () => {
-    setDay(null);
-  };
+  const today = data[0].sessions.map((d) => d.day);
 
   function formatXAxis(value) {
     switch (value) {
@@ -52,6 +41,20 @@ function AverageSessions({ data }) {
         return "D";
     }
   }
+  formatXAxis(today);
+
+  const [day, setDay] = useState(null);
+  const onMouseMove = (hoveredData) => {
+    const hoveredX = hoveredData.activePayload[0].payload.day;
+    const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
+    if (hoveredData && hoveredData.activePayload) {
+      setDay(index + 1);
+    }
+  };
+
+  const onMouseOut = () => {
+    setDay(null);
+  };
 
   return (
     <section className="average-sessions">
@@ -75,8 +78,12 @@ function AverageSessions({ data }) {
             stroke="#fff"
             padding={{ left: 20, right: 20 }}
             opacity={0.5}
-            margin={{ bottom: 30 }}
-            tickFormatter={formatXAxis(data[0].sessions[0].day)}
+            tickFormatter={formatXAxis}
+            tickLine={false}
+            domain={["dataMin - 100", "dataMax + 100"]}
+            margin={{
+              bottom: 30,
+            }}
           />
 
           <YAxis

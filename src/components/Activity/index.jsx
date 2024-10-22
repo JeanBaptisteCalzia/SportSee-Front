@@ -63,7 +63,7 @@ function Activity({ data }) {
             stroke="#777"
             type="number"
             strokeWidth="1px"
-            domain={["dataMin", "dataMax"]}
+            domain={["dataMin", "dataMax + 10"]}
             interval={1}
           />
           <Tooltip content={<CustomTooltip />} />

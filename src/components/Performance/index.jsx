@@ -37,13 +37,14 @@ function Performance({ data }) {
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height={240}>
-        <RadarChart cx="50%" cy="50%" data={data[0].data}>
+        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data[0].data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 13 }}
             stroke="#fff"
             fill="#fff"
+            strokeWidth={0}
           />
           <PolarRadiusAxis tick={false} hide={true} axisLine={false} />
           <Radar

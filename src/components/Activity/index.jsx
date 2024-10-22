@@ -57,6 +57,7 @@ function Activity({ data }) {
           />
           <YAxis
             yAxisId="right"
+            tickLine={false}
             axisLine={false}
             orientation="right"
             stroke="#777"

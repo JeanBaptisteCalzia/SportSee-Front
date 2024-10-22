@@ -11,27 +11,27 @@ import {
 
 function Performance({ data }) {
   if (data[0].data["0"].kind == "1") {
-    data[0].data["0"].kind = "Cardio";
+    data[0].data["0"].kind = "Intensité";
   }
 
   if (data[0].data["1"].kind == "2") {
-    data[0].data["1"].kind = "Énergie";
+    data[0].data["1"].kind = "Vitesse";
   }
 
   if (data[0].data["2"].kind == "3") {
-    data[0].data["2"].kind = "Endurance";
+    data[0].data["2"].kind = "Force";
   }
 
   if (data[0].data["3"].kind == "4") {
-    data[0].data["3"].kind = "Force";
+    data[0].data["3"].kind = "Endurance";
   }
 
   if (data[0].data["4"].kind == "5") {
-    data[0].data["4"].kind = "Vitesse";
+    data[0].data["4"].kind = "Energie";
   }
 
   if (data[0].data["5"].kind == "6") {
-    data[0].data["5"].kind = "Intensité";
+    data[0].data["5"].kind = "Cardio";
   }
 
   return (

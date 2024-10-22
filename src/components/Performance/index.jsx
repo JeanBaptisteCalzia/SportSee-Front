@@ -41,7 +41,7 @@ function Performance({ data }) {
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
-            tick={{ fontSize: 13 }}
+            tick={{ fontSize: 12 }}
             stroke="#fff"
             fill="#fff"
             strokeWidth={0}

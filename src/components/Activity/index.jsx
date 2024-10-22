@@ -42,24 +42,31 @@ function Activity({ data }) {
           data={data[0].sessions}
           margin={{
             top: 20,
-            right: 30,
-            left: 20,
+            right: -20,
+            left: -60,
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="2 2" stroke="#DEDEDE" />
+          <CartesianGrid strokeDasharray="2 2" />
           <XAxis dataKey="day" stroke="#777" axisLine={{ stroke: "#EAF0F4" }} />
-          <YAxis yAxisId="left" axisLine={false} tick={false} hide />
           <YAxis
+            yAxisId="left"
             axisLine={false}
+            tickLine={false}
+            tickFormatter={() => ""}
+          />
+          <YAxis
             yAxisId="right"
+            axisLine={false}
             orientation="right"
-            stroke="#9B9EAC"
+            stroke="#777"
             type="number"
-            domain={["dataMin - 100", "dataMax + 100"]}
+            strokeWidth="1px"
+            domain={["dataMin", "dataMax"]}
+            interval={1}
           />
           <Tooltip content={<CustomTooltip />} />
-          {/* <Legend layout="vertical" verticalAlign="top" align="right" /> */}
+
           <Bar
             yAxisId="left"
             dataKey="kilogram"
@@ -75,6 +82,47 @@ function Activity({ data }) {
             radius={[20, 20, 0, 0]}
           />
         </BarChart>
+
+        {/* <BarChart
+          width={500}
+          height={300}
+          data={data[0].sessions}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="2 2" stroke="#DEDEDE" />
+          <XAxis dataKey="day" stroke="#777" axisLine={{ stroke: "#EAF0F4" }} />
+          <YAxis yAxisId="left" axisLine={false} tick={false} />
+          <YAxis
+            axisLine={false}
+            yAxisId="right"
+            orientation="right"
+            stroke="#777"
+            type="number"
+            strokeWidth="1px"
+            domain={["dataMin - 100", "dataMax + 100"]}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          {/* <Legend layout="vertical" verticalAlign="top" align="right" /> 
+          {/* <Bar
+            yAxisId="left"
+            dataKey="kilogram"
+            fill="#282D30"
+            barSize={8}
+            radius={[20, 20, 0, 0]}
+          />
+          <Bar
+            yAxisId="right"
+            dataKey="calories"
+            fill="#E60000"
+            barSize={8}
+            radius={[20, 20, 0, 0]}
+          /> 
+        </BarChart> */}
       </ResponsiveContainer>
     </section>
   );

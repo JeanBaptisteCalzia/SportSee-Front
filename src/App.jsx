@@ -5,6 +5,7 @@ import SideBar from "./components/SideBar/";
 import Error from "./components/Error/";
 import Home from "./pages/Home/";
 import User from "./pages/User/";
+import Settings from "./pages/Settings/";
 import "./App.scss";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/user/:id" element={<User />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

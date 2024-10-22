@@ -52,8 +52,12 @@ body {
 .wrapper {
   display: flex;
   flex-grow: 1;
-  flex-direction: row;
   position: relative;
+  flex-direction: column;
+
+  @media only screen and (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 
 main {
@@ -145,9 +149,13 @@ p {
 
   &__content-bottom {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     column-gap: 1.875rem;
     row-gap: 1.875rem;
+
+    @media only screen and (min-width: 640px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 }
 

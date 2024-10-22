@@ -4,6 +4,11 @@
   position: relative;
   border-radius: 8px 8px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.02);
+  order: 2;
+
+  @media only screen and (min-width: 640px) {
+    order: 1;
+  }
 
   h2 {
     opacity: 0.5;

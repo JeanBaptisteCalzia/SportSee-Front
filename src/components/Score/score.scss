@@ -4,6 +4,11 @@
   position: relative;
   border-radius: 8px 8px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.02);
+  order: 1;
+
+  @media only screen and (min-width: 640px) {
+    order: 3;
+  }
 
   &__number {
     font-size: 1.625rem;

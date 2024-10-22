@@ -57,9 +57,10 @@ body {
 }
 
 main {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  width: 100%;
+  // display: flex;
+  // flex-grow: 1;
+  // flex-direction: column;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
 
   @media only screen and (min-width: 1200px) {
@@ -99,6 +100,22 @@ p {
   &.lead {
     font-size: 1.125rem;
     line-height: 24px;
+  }
+}
+
+.btn {
+  background-color: #ff0101;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px 8px;
+  text-decoration: none;
+  flex-grow: initial;
+  display: inline-block;
+
+  &:hover {
+    background: darken(#ff0101, 5%);
+    cursor: pointer;
   }
 }
 

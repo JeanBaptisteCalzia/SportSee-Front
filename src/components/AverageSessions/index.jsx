@@ -1,13 +1,13 @@
 import "./averageSessions.scss";
-import React from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  ReferenceArea,
 } from "recharts";
 
 function AverageSessions({ data }) {
@@ -21,32 +21,36 @@ function AverageSessions({ data }) {
     }
   };
 
-  if (data[0].sessions["0"].day == "1") {
-    data[0].sessions["0"].day = "L";
-  }
+  const [day, setDay] = useState(null);
+  const onMouseMove = (hoveredData) => {
+    const hoveredX = hoveredData.activePayload[0].payload.day;
+    const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
+    if (hoveredData && hoveredData.activePayload) {
+      setDay(index + 1);
+    }
+  };
 
-  if (data[0].sessions["1"].day == "2") {
-    data[0].sessions["1"].day = "M";
-  }
+  const onMouseOut = () => {
+    setDay(null);
+  };
 
-  if (data[0].sessions["2"].day == "3") {
-    data[0].sessions["2"].day = "M";
-  }
-
-  if (data[0].sessions["3"].day == "4") {
-    data[0].sessions["3"].day = "J";
-  }
-
-  if (data[0].sessions["4"].day == "5") {
-    data[0].sessions["4"].day = "V";
-  }
-
-  if (data[0].sessions["5"].day == "6") {
-    data[0].sessions["5"].day = "S";
-  }
-
-  if (data[0].sessions["6"].day == "7") {
-    data[0].sessions["6"].day = "D";
+  function formatXAxis(value) {
+    switch (value) {
+      case 1:
+        return "L";
+      case 2:
+        return "M";
+      case 3:
+        return "M";
+      case 4:
+        return "J";
+      case 5:
+        return "V";
+      case 6:
+        return "S";
+      default:
+        return "D";
+    }
   }
 
   return (
@@ -57,27 +61,56 @@ function AverageSessions({ data }) {
         sessions
       </h2>
 
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={264}>
         <LineChart
           width="100%"
           height="100%"
           data={data[0].sessions}
-          // margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          onMouseMove={onMouseMove}
+          onMouseOut={onMouseOut}
         >
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <XAxis
             axisLine={false}
             dataKey="day"
             stroke="#fff"
             padding={{ left: 20, right: 20 }}
+            opacity={0.5}
+            margin={{ bottom: 30 }}
+            tickFormatter={formatXAxis(data[0].sessions[0].day)}
           />
-          <YAxis tick={false} hide />
-          <Tooltip content={<CustomTooltip />} />
+
+          <YAxis
+            tick={false}
+            hide
+            domain={["dataMin - 10", "dataMax + 10"]}
+            padding={{ bottom: 16, top: 16 }}
+          />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ stroke: "#E60000", fill: "E60000", strokeWidth: 2 }}
+          />
+
           <Line
+            activeDot={{
+              r: 8,
+              fill: "#fff",
+              stroke: "rgba(255,255,255, .5)",
+              strokeWidth: 10,
+            }}
+            dot={false}
             type="monotone"
             dataKey="sessionLength"
-            stroke="#fff"
+            stroke="white"
             strokeWidth={2}
+            strokeOpacity={0.5}
+          />
+
+          <ReferenceArea
+            x1={day}
+            x2={["dataMax"]}
+            y1={["dataMin"]}
+            y2={["dataMax"]}
+            fill="#E60000"
           />
         </LineChart>
       </ResponsiveContainer>

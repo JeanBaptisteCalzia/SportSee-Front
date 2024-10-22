@@ -20,4 +20,17 @@
       line-height: 24px;
     }
   }
+
+  .legend {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0 0;
+
+    li {
+      margin: 0 1rem;
+      font-size: clamp(0.85rem, 1rem, 1rem);
+    }
+  }
 }

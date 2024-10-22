@@ -18,7 +18,7 @@ function Score({ todayScore, data, score }) {
           data={data}
           innerRadius={75}
           outerRadius={75}
-          barSize={10}
+          background={{ fill: "#fff" }}
           startAngle={-270}
           endAngle={90}
         >
@@ -28,13 +28,15 @@ function Score({ todayScore, data, score }) {
             angleAxisId={0}
             tick={false}
           />
+
           <RadialBar
-            background
+            background={{ fill: "#fff" }}
             barSize={10}
             dataKey={todayScore ? "todayScore" : "score"}
             cornerRadius={100}
             fill="#FF0000"
           />
+
           <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
             <tspan
               textAnchor="middle"

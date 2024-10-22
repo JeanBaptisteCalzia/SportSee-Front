@@ -22,6 +22,7 @@
     border-radius: 8px 8px;
     margin-right: 2rem;
     width: calc(25% - 1.5rem);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.02);
 
     @media only screen and (min-width: 1200px) {
       width: 100%;

@@ -39,7 +39,7 @@ function User() {
     userActivity &&
     userActivity.filter((user) => user.userId === parseInt(userId));
 
-  if (parseInt(currentId) !== parseInt(userId)) {
+  if (currentId.toString() !== userId) {
     return <Error />;
   } else {
     return (

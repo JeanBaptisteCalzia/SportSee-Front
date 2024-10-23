@@ -51,20 +51,20 @@ function Activity({ data }) {
           <XAxis dataKey="day" stroke="#777" axisLine={{ stroke: "#EAF0F4" }} />
           <YAxis
             yAxisId="left"
+            orientation="right"
             axisLine={false}
             tickLine={false}
-            tickFormatter={() => ""}
           />
           <YAxis
             yAxisId="right"
             tickLine={false}
             axisLine={false}
-            orientation="right"
             stroke="#777"
             type="number"
             strokeWidth="1px"
             domain={["dataMin", "dataMax + 10"]}
             interval={1}
+            tickFormatter={() => ""}
           />
           <Tooltip content={<CustomTooltip />} />
 

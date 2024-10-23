@@ -1,74 +1,57 @@
 import "./score.scss";
 import React from "react";
-import {
-  RadialBarChart,
-  RadialBar,
-  ResponsiveContainer,
-  PolarAngleAxis,
-} from "recharts";
+import { ResponsiveContainer, Label, PieChart, Pie, Cell } from "recharts";
 
 function Score({ todayScore, data, score }) {
   return (
     <section className="score">
       <h2>Score</h2>
       <ResponsiveContainer width="100%" height={220}>
-        <RadialBarChart
-          width={150}
-          height={150}
-          data={data}
-          innerRadius={75}
-          outerRadius={75}
-          background={{ fill: "#fff" }}
-          startAngle={-270}
-          endAngle={90}
-        >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 1]}
-            angleAxisId={0}
-            tick={false}
-          />
-
-          <RadialBar
-            background={{ fill: "#fff" }}
-            barSize={10}
+        <PieChart width={150} height={150}>
+          <Pie
+            data={data}
             dataKey={todayScore ? "todayScore" : "score"}
-            cornerRadius={100}
-            fill="#FF0000"
-          />
-
-          <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
-            <tspan
-              textAnchor="middle"
-              dominantBaseline="middle"
+            innerRadius={70}
+            outerRadius={80}
+            cornerRadius={40}
+            fill="#E60000"
+            startAngle={-270}
+            endAngle={todayScore ? todayScore * 360 - 270 : score * 360 - 270}
+          ></Pie>
+          <Pie
+            data={data}
+            dataKey={todayScore ? "todayScore" : "score"}
+            innerRadius={0}
+            outerRadius={70}
+            isAnimationActive={false}
+          >
+            <Cell fill="#fff" stroke="#fff" />;
+            <Label
+              value={`${todayScore ? todayScore * 100 : score * 100}%`}
+              position="center"
+              fill="black"
               className="score__number"
-              x="50%"
-              y="45%"
-            >
-              {todayScore ? todayScore * 100 : score * 100} %
-            </tspan>
-            <tspan
-              textAnchor="middle"
-              dominantBaseline="middle"
+              dx={0}
+              dy={-20}
+            />
+            <Label
+              value="de votre"
+              position="center"
+              fill="black"
+              dx={0}
+              dy={10}
               className="score__label"
-              fill="#74798C"
-              x="50%"
-              dy="32"
-            >
-              de votre
-            </tspan>
-            <tspan
-              textAnchor="middle"
-              dominantBaseline="middle"
+            />
+            <Label
+              value="objectif"
+              dx={0}
+              dy={30}
+              position="center"
+              fill="black"
               className="score__label"
-              fill="#74798C"
-              x="50%"
-              dy="24"
-            >
-              objectif
-            </tspan>
-          </text>
-        </RadialBarChart>
+            />
+          </Pie>
+        </PieChart>
       </ResponsiveContainer>
     </section>
   );

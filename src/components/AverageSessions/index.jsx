@@ -99,10 +99,10 @@ function AverageSessions({ data }) {
 
           <Line
             activeDot={{
-              r: 8,
+              r: 6,
               fill: "#fff",
               stroke: "rgba(255,255,255, .5)",
-              strokeWidth: 10,
+              strokeWidth: 8,
             }}
             dot={false}
             type="monotone"

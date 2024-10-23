@@ -37,7 +37,6 @@ function Score({ todayScore, data, score }) {
             <Label
               value="de votre"
               position="center"
-              fill="black"
               dx={0}
               dy={10}
               className="score__label"
@@ -47,7 +46,6 @@ function Score({ todayScore, data, score }) {
               dx={0}
               dy={30}
               position="center"
-              fill="black"
               className="score__label"
             />
           </Pie>

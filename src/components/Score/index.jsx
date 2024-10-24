@@ -6,7 +6,7 @@ function Score({ todayScore, data, score }) {
   return (
     <section className="score">
       <h2>Score</h2>
-      <ResponsiveContainer width="100%" height={220}>
+      <ResponsiveContainer width="100%" height={170}>
         <PieChart width={150} height={150}>
           <Pie
             data={data}

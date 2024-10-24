@@ -3,39 +3,39 @@
     list-style-type: none;
     margin: 0 0;
     padding: 0 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media only screen and (min-width: 480px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (min-width: 880px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     @media only screen and (min-width: 1200px) {
+      display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
+      margin-bottom: 0;
+      row-gap: 2rem;
     }
   }
   .card {
-    margin-bottom: 2rem;
     background-color: #fbfbfb;
     padding: 1rem 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     border-radius: 8px 8px;
-    width: calc(52.15% - 1.5rem);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.02);
     text-align: center;
 
-    &:nth-child(odd) {
-      margin-right: 1.5rem;
-    }
-
-    @media only screen and (min-width: 640px) {
-      width: calc(25.5% - 1.5rem);
-      flex-direction: column;
-      margin-right: 2rem;
-    }
-
     @media only screen and (min-width: 880px) {
-      width: calc(25.4% - 1.5rem);
       flex-direction: row;
       text-align: left;
     }
@@ -61,12 +61,7 @@
       align-content: center;
       justify-content: center;
       border-radius: 6px 6px;
-      margin-bottom: 1rem;
       margin-right: 1rem;
-
-      @media only screen and (min-width: 640px) {
-        margin-right: 0;
-      }
 
       @media only screen and (min-width: 880px) {
         margin-bottom: 0;
@@ -75,6 +70,7 @@
       @media only screen and (min-width: 1200px) {
         width: 3.75rem;
         height: 3.75rem;
+        margin-right: 0;
       }
 
       img {
@@ -90,10 +86,6 @@
 
     &__content {
       text-align: left;
-
-      @media only screen and (min-width: 640px) {
-        text-align: center;
-      }
 
       @media only screen and (min-width: 880px) {
         margin-left: 1.5rem;

@@ -35,7 +35,7 @@ function Activity({ data }) {
           <li>Calories brûlées (kCal)</li>
         </ul>
       </div>
-      <ResponsiveContainer width="100%" height={176}>
+      <ResponsiveContainer width="100%" height={224}>
         <BarChart
           width={500}
           height={300}

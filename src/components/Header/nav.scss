@@ -16,7 +16,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1200px) {
       margin: 0 5rem 0 0;
     }
 
@@ -31,7 +31,7 @@ nav {
         color: white;
         font-size: clamp(0.5rem, 1rem, 1rem);
 
-        @media only screen and (min-width: 880px) {
+        @media only screen and (min-width: 1024px) {
           font-size: 1rem;
           line-height: 20px;
           font-size: 1.5rem;

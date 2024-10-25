@@ -1,5 +1,4 @@
 import React from "react";
-import { userMainData } from "../../datas/dataMocked";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import "./nav.scss";
@@ -23,19 +22,18 @@ function Header() {
             Accueil
           </NavLink>
         </li>
-        {userMainData &&
-          userMainData.map(({ id }) => (
-            <li key={id}>
-              <NavLink
-                className={({ isActive }) => {
-                  return isActive ? "active" : "";
-                }}
-                to={`/user/${id}`}
-              >
-                Profil
-              </NavLink>
-            </li>
-          ))}
+
+        <li>
+          <NavLink
+            className={({ isActive }) => {
+              return isActive ? "active" : "";
+            }}
+            to={`/user`}
+          >
+            Profil
+          </NavLink>
+        </li>
+
         <li>
           <NavLink
             className={({ isActive }) => {

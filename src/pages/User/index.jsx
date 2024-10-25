@@ -9,6 +9,7 @@ import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
+import ToggleSwitch from "../../components//ToggleSwitch";
 
 import { fetchUserMainData } from "../../utils/api";
 import { fetchUserActivity } from "../../utils/api";
@@ -20,11 +21,6 @@ import { useEffect, useState } from "react";
 function User() {
   const params = useParams();
   const userId = params.id;
-
-  const [isToggled, setIsToggled] = useState(false);
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-  };
 
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
@@ -71,6 +67,7 @@ function User() {
               <h1>
                 Bonjour <span>{userInfos.firstName}</span>
               </h1>
+              <ToggleSwitch label="Id" />
               <p className="lead">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏
               </p>

@@ -1,9 +1,4 @@
-import React from "react";
 import { useParams } from "react-router-dom";
-import { userMainData } from "../../datas/dataMocked";
-import { userPerformance } from "../../datas/dataMocked";
-import { userAverageSessions } from "../../datas/dataMocked";
-import { userActivity } from "../../datas/dataMocked";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
@@ -15,36 +10,62 @@ import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
 
+import { fetchUserMainData } from "../../utils/api";
+import { fetchUserActivity } from "../../utils/api";
+import { fetchUserPerformance } from "../../utils/api";
+import { fetchUserAverageSessions } from "../../utils/api";
+
+import { useEffect, useState } from "react";
+
 function User() {
   const params = useParams();
   const userId = params.id;
 
-  // Main chart
-  const currentUser =
-    userMainData && userMainData.filter((user) => user.id === parseInt(userId));
-  const currentId = currentUser.map((id) => id.id);
+  const [isToggled, setIsToggled] = useState(false);
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
 
-  // Performance chart
-  const currentUserPerformance =
-    userPerformance &&
-    userPerformance.filter((user) => user.userId === parseInt(userId));
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentUser, setCurrentUser] = useState([]);
+  const [currentUserActivity, setCurrentUserActivity] = useState([]);
+  const [currentUserPerformance, setCurrentUserPerformance] = useState([]);
+  const [currentUserAverageSessions, setCurrentUserAverageSessions] = useState(
+    []
+  );
 
-  // Average Sessions chart
-  const currentUserAverageSessions =
-    userAverageSessions &&
-    userAverageSessions.filter((user) => user.userId === parseInt(userId));
+  useEffect(() => {
+    setIsLoading(true);
 
-  // Activity chart
-  const currentUserActivity =
-    userActivity &&
-    userActivity.filter((user) => user.userId === parseInt(userId));
+    async function fetchData() {
+      const responseMainData = await fetchUserMainData(userId);
+      setCurrentUser(responseMainData);
+
+      const responseActivity = await fetchUserActivity(userId);
+      setCurrentUserActivity(responseActivity);
+
+      const responsePerformance = await fetchUserPerformance(userId);
+      setCurrentUserPerformance(responsePerformance);
+
+      const responseAverageSessions = await fetchUserAverageSessions(userId);
+      setCurrentUserAverageSessions(responseAverageSessions);
+    }
+
+    fetchData();
+
+    setIsLoading(false);
+  }, [userId]);
+
+  const user =
+    currentUser && currentUser.filter((id) => id.id === parseInt(userId));
+  const currentId = user.map((id) => id.id);
 
   if (currentId.toString() !== userId) {
     return <Error />;
   } else {
     return (
       <main>
-        {currentUser.map(({ id, userInfos, keyData, todayScore, score }) => (
+        {user.map(({ id, userInfos, keyData, todayScore, score }) => (
           <div key={id}>
             <section>
               <h1>

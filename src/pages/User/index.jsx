@@ -9,8 +9,9 @@ import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
-import ToggleSwitch from "../../components//ToggleSwitch";
-
+import ToggleSwitch from "../../components/ToggleSwitch";
+import Loader from "../../components/Loader";
+import { userMainData } from "../../datas/dataMocked";
 import { fetchUserMainData } from "../../utils/api";
 import { fetchUserActivity } from "../../utils/api";
 import { fetchUserPerformance } from "../../utils/api";
@@ -51,6 +52,10 @@ function User() {
 
     setIsLoading(false);
   }, [userId]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const user =
     currentUser && currentUser.filter((id) => id.id === parseInt(userId));

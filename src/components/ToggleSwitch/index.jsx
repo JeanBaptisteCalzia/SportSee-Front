@@ -4,7 +4,7 @@ import "./toggleSwitch.scss";
 const ToggleSwitch = ({ label }) => {
   return (
     <div className="toggle-switch">
-      <span className="toggle-switch__title">({label})</span>
+      <span className="toggle-switch__title">{label} :</span>
       <div className="toggle-switch__container">
         <input
           type="checkbox"

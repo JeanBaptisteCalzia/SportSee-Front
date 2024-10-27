@@ -59,16 +59,13 @@ function User() {
     return <Loader />;
   }
 
-  const user =
-    currentUser && currentUser.filter((id) => id.id === parseInt(userId));
-  const currentId = user.map((id) => id.id);
-
+  const currentId = currentUser.map((id) => id.id);
   if (currentId.toString() !== userId) {
     return <Error />;
   } else {
     return (
       <main>
-        {user.map(({ id, userInfos, keyData, todayScore, score }) => (
+        {currentUser.map(({ id, userInfos, keyData, todayScore, score }) => (
           <div key={id}>
             <section>
               <h1>

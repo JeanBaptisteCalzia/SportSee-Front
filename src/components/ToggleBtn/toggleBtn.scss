@@ -1,0 +1,69 @@
+.toggle-btn {
+  background-color: #282d30;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  height: 1.5rem;
+  position: relative;
+  width: 2.75rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+
+  &::after {
+    content: "18";
+    color: white;
+    position: absolute;
+    top: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.toggle-btn:focus,
+.toggle-btn:active {
+  outline: none;
+}
+.toggle-btn::-moz-focus-inner {
+  border: 0;
+}
+
+.pin {
+  background-color: white;
+  border-radius: 50px;
+  height: 1rem;
+  left: 5px;
+  position: absolute;
+  top: 4px;
+  width: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn.on {
+  background-color: #e60000;
+
+  &::after {
+    content: "12";
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+}
+
+.toggle-btn.on .pin {
+  left: 1.5rem;
+}
+
+.toggle-switch {
+  position: relative;
+  float: right;
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-right: 0.5rem;
+  }
+}

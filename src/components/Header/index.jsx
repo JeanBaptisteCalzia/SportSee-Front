@@ -1,9 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../../utils/Context";
+
 import "./nav.scss";
 
 function Header() {
+  const { toggleId, swithToggleId } = useContext(ThemeContext);
+  const userId = toggleId ? "12" : "18";
+
   return (
     <nav>
       <ul>
@@ -28,7 +34,7 @@ function Header() {
             className={({ isActive }) => {
               return isActive ? "active" : "";
             }}
-            to={`/user`}
+            to={`/user/${userId}`}
           >
             Profil
           </NavLink>

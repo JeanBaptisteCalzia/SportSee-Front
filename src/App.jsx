@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./utils/Context/";
 import Header from "./components/Header/";
 import SideBar from "./components/SideBar/";
 import Error from "./components/Error/";
@@ -12,17 +13,19 @@ import "./App.scss";
 function App() {
   return (
     <Router>
-      <Header />
-      <div className="wrapper">
-        <SideBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/user/:id" element={<User />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/social" element={<Social />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </div>
+      <ThemeProvider>
+        <Header />
+        <div className="wrapper">
+          <SideBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/user/:id" element={<User />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/social" element={<Social />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
     </Router>
   );
 }

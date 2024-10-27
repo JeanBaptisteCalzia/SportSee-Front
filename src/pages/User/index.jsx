@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
@@ -9,19 +9,21 @@ import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
-import ToggleSwitch from "../../components/ToggleSwitch";
+import ToggleBtn from "../../components/ToggleBtn";
 import Loader from "../../components/Loader";
-import { userMainData } from "../../datas/dataMocked";
 import { fetchUserMainData } from "../../utils/api";
 import { fetchUserActivity } from "../../utils/api";
 import { fetchUserPerformance } from "../../utils/api";
 import { fetchUserAverageSessions } from "../../utils/api";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "../../utils/Context";
 
 function User() {
-  const params = useParams();
-  const userId = params.id;
+  // const params = useParams();
+  // const userId = params.id;
+  const { toggleId, swithToggleId } = useContext(ThemeContext);
+  const userId = toggleId ? "12" : "18";
 
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
@@ -72,7 +74,8 @@ function User() {
               <h1>
                 Bonjour <span>{userInfos.firstName}</span>
               </h1>
-              <ToggleSwitch label="Id" />
+              <ToggleBtn label="Id" onClick={() => swithToggleId(!toggleId)} />
+
               <p className="lead">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏
               </p>

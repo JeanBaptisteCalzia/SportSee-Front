@@ -22,6 +22,7 @@ import { ThemeContext } from "../../utils/Context";
 function User() {
   // const params = useParams();
   // const userId = params.id;
+
   const { toggleId, swithToggleId } = useContext(ThemeContext);
   const userId = toggleId ? "12" : "18";
 

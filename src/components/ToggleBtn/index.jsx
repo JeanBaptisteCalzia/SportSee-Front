@@ -1,7 +1,7 @@
 import "./toggleBtn.scss";
 import { useContext } from "react";
 import { ThemeContext } from "../../utils/Context";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ToggleBtn = ({ label, onClick }) => {
   const { toggleId, swithToggleId } = useContext(ThemeContext);
@@ -12,21 +12,21 @@ const ToggleBtn = ({ label, onClick }) => {
       <span className="toggle-switch__title">{label} :</span>
 
       {toggleId ? (
-        <NavLink
+        <Link
           to={`/user/${userId}`}
           onClick={onClick}
           className={`toggle-btn ${toggleId ? "on" : "off"}`}
         >
           <span className="pin"></span>
-        </NavLink>
+        </Link>
       ) : (
-        <NavLink
+        <Link
           to={`/user/${userId}`}
           onClick={onClick}
           className={`toggle-btn ${toggleId ? "on" : "off"}`}
         >
           <span className="pin"></span>
-        </NavLink>
+        </Link>
       )}
     </div>
   );

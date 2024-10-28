@@ -12,7 +12,7 @@
 }
 
 #api .toggle__btn {
-  background-color: #282d30;
+  background-color: #ccc;
   border: 0;
   border-radius: 50px;
   cursor: pointer;
@@ -42,7 +42,7 @@
   .toggle__btn {
     &::after {
       content: "Mock";
-      color: white;
+      color: #777;
       position: absolute;
       top: 5px;
       right: 6px;
@@ -89,7 +89,7 @@
 
 #api {
   .toggle__btn.on {
-    background-color: #e60000;
+    background-color: green;
 
     &::after {
       content: "Api";

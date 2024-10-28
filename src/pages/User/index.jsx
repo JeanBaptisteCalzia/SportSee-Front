@@ -26,7 +26,9 @@ function User() {
   const { toggleId, swithToggleId } = useContext(ThemeContext);
   const userId = toggleId ? "12" : "18";
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   const [currentUser, setCurrentUser] = useState([]);
   const [currentUserActivity, setCurrentUserActivity] = useState([]);
   const [currentUserPerformance, setCurrentUserPerformance] = useState([]);
@@ -38,29 +40,38 @@ function User() {
     setIsLoading(true);
 
     async function fetchData() {
-      const responseMainData = await fetchUserMainData(userId);
-      setCurrentUser(responseMainData);
+      try {
+        const responseMainData = await fetchUserMainData(userId);
+        setCurrentUser(responseMainData);
 
-      const responseActivity = await fetchUserActivity(userId);
-      setCurrentUserActivity(responseActivity);
+        const responseActivity = await fetchUserActivity(userId);
+        setCurrentUserActivity(responseActivity);
 
-      const responsePerformance = await fetchUserPerformance(userId);
-      setCurrentUserPerformance(responsePerformance);
+        const responsePerformance = await fetchUserPerformance(userId);
+        setCurrentUserPerformance(responsePerformance);
 
-      const responseAverageSessions = await fetchUserAverageSessions(userId);
-      setCurrentUserAverageSessions(responseAverageSessions);
+        const responseAverageSessions = await fetchUserAverageSessions(userId);
+        setCurrentUserAverageSessions(responseAverageSessions);
+      } catch (err) {
+        console.log(err);
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
     }
-
     fetchData();
-
-    setIsLoading(false);
   }, [userId]);
 
   if (isLoading) {
     return <Loader />;
   }
 
+  if (error) {
+    return <Error />;
+  }
+
   const currentId = currentUser.map((id) => id.id);
+
   if (currentId.toString() !== userId) {
     return <Error />;
   } else {

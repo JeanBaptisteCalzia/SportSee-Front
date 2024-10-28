@@ -16,9 +16,7 @@ export async function fetchUserMainData(userId) {
     const responseData = await response.json();
     const arrayMainData = [];
     arrayMainData.push(responseData.data);
-    const user =
-      arrayMainData && arrayMainData.filter((id) => id.id === parseInt(userId));
-    return user;
+    return arrayMainData;
   }
 }
 

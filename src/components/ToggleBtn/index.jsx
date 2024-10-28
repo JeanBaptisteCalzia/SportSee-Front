@@ -13,7 +13,7 @@ const ToggleBtn = ({ label, onClick }) => {
 
       {toggleId ? (
         <Link
-          to={`/user/${userId}`}
+          to={`/user/18`}
           onClick={onClick}
           className={`toggle-btn ${toggleId ? "on" : "off"}`}
         >
@@ -21,7 +21,7 @@ const ToggleBtn = ({ label, onClick }) => {
         </Link>
       ) : (
         <Link
-          to={`/user/${userId}`}
+          to={`/user/12`}
           onClick={onClick}
           className={`toggle-btn ${toggleId ? "on" : "off"}`}
         >

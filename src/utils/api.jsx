@@ -3,10 +3,8 @@ import { userPerformance } from "../datas/dataMocked";
 import { userAverageSessions } from "../datas/dataMocked";
 import { userActivity } from "../datas/dataMocked";
 
-const useApi = false;
-
-export async function fetchUserMainData(userId) {
-  if (!useApi) {
+export async function fetchUserMainData(userId, apiDatas) {
+  if (!apiDatas) {
     return (
       userMainData &&
       userMainData.filter((user) => user.id === parseInt(userId))
@@ -20,8 +18,8 @@ export async function fetchUserMainData(userId) {
   }
 }
 
-export async function fetchUserPerformance(userId) {
-  if (!useApi) {
+export async function fetchUserPerformance(userId, apiDatas) {
+  if (!apiDatas) {
     return (
       userPerformance &&
       userPerformance.filter((user) => user.userId === parseInt(userId))
@@ -37,8 +35,8 @@ export async function fetchUserPerformance(userId) {
   }
 }
 
-export async function fetchUserAverageSessions(userId) {
-  if (!useApi) {
+export async function fetchUserAverageSessions(userId, apiDatas) {
+  if (!apiDatas) {
     return (
       userAverageSessions &&
       userAverageSessions.filter((user) => user.userId === parseInt(userId))
@@ -54,8 +52,8 @@ export async function fetchUserAverageSessions(userId) {
   }
 }
 
-export async function fetchUserActivity(userId) {
-  if (!useApi) {
+export async function fetchUserActivity(userId, apiDatas) {
+  if (!apiDatas) {
     return (
       userActivity &&
       userActivity.filter((user) => user.userId === parseInt(userId))

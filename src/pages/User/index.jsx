@@ -18,12 +18,15 @@ import { fetchUserAverageSessions } from "../../utils/api";
 
 import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../utils/Context";
+import { ApiContext } from "../../utils/Context";
 
 function User() {
   const params = useParams();
   const userId = params.id;
 
   const { toggleId, swithToggleId } = useContext(ThemeContext);
+  const { datas, updateDatas } = useContext(ApiContext);
+  const apiDatas = datas ? true : false;
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -40,16 +43,22 @@ function User() {
 
     async function fetchData() {
       try {
-        const responseMainData = await fetchUserMainData(userId);
+        const responseMainData = await fetchUserMainData(userId, apiDatas);
         setCurrentUser(responseMainData);
 
-        const responseActivity = await fetchUserActivity(userId);
+        const responseActivity = await fetchUserActivity(userId, apiDatas);
         setCurrentUserActivity(responseActivity);
 
-        const responsePerformance = await fetchUserPerformance(userId);
+        const responsePerformance = await fetchUserPerformance(
+          userId,
+          apiDatas
+        );
         setCurrentUserPerformance(responsePerformance);
 
-        const responseAverageSessions = await fetchUserAverageSessions(userId);
+        const responseAverageSessions = await fetchUserAverageSessions(
+          userId,
+          apiDatas
+        );
         setCurrentUserAverageSessions(responseAverageSessions);
       } catch (err) {
         console.log(err);
@@ -69,9 +78,8 @@ function User() {
     return <Error />;
   }
 
-  const currentId = currentUser.map((id) => id.id);
-
-  if (currentId.toString() !== userId) {
+  const currentId = toggleId ? "12" : "18";
+  if (currentId !== userId) {
     return <Error />;
   } else {
     return (
@@ -82,7 +90,16 @@ function User() {
               <h1>
                 Bonjour <span>{userInfos.firstName}</span>
               </h1>
-              <ToggleBtn label="Id" onClick={() => swithToggleId(!toggleId)} />
+              <ToggleBtn
+                id="id"
+                label="Id"
+                onClick={() => swithToggleId(!toggleId)}
+              />
+              <ToggleBtn
+                id="api"
+                label="Datas"
+                onClick={() => updateDatas(!datas)}
+              />
 
               <p className="lead">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏

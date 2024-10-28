@@ -1,4 +1,4 @@
-.toggle-btn {
+#id .toggle__btn {
   background-color: #282d30;
   border: 0;
   border-radius: 50px;
@@ -9,23 +9,54 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   position: relative;
+}
 
-  &::after {
-    content: "18";
-    color: white;
-    position: absolute;
-    top: 5px;
-    right: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
+#api .toggle__btn {
+  background-color: #282d30;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  height: 1.5rem;
+  position: relative;
+  width: 4.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+#id {
+  .toggle__btn {
+    &::after {
+      content: "18";
+      color: white;
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
   }
 }
 
-.toggle-btn:focus,
-.toggle-btn:active {
+#api {
+  .toggle__btn {
+    &::after {
+      content: "Mock";
+      color: white;
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.toggle__btn:focus,
+.toggle__btn:active {
   outline: none;
 }
-.toggle-btn::-moz-focus-inner {
+.toggle__btn::-moz-focus-inner {
   border: 0;
 }
 
@@ -40,25 +71,49 @@
   transition: all 0.3s ease-in-out;
 }
 
-.toggle-btn.on {
-  background-color: #e60000;
+#id {
+  .toggle__btn.on {
+    background-color: #e60000;
 
-  &::after {
-    content: "12";
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: white;
-    position: absolute;
-    top: 5px;
-    left: 4px;
+    &::after {
+      content: "12";
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      position: absolute;
+      top: 5px;
+      left: 4px;
+    }
   }
 }
 
-.toggle-btn.on .pin {
+#api {
+  .toggle__btn.on {
+    background-color: #e60000;
+
+    &::after {
+      content: "Api";
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      position: absolute;
+      top: 5px;
+      left: -20px;
+    }
+  }
+}
+
+.toggle__btn.on .pin {
   left: 1.5rem;
 }
 
-.toggle-switch {
+#api {
+  .toggle__btn.on .pin {
+    left: 3rem;
+  }
+}
+
+.toggle {
   position: relative;
   float: right;
   display: flex;

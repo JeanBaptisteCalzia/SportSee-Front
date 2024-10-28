@@ -14,3 +14,19 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+
+export const ApiContext = createContext();
+
+export const ApiProvider = ({ children }) => {
+  const [datas, setDatas] = useState(true);
+
+  const updateDatas = () => {
+    setDatas(!datas);
+  };
+
+  return (
+    <ApiContext.Provider value={{ datas, updateDatas }}>
+      {children}
+    </ApiContext.Provider>
+  );
+};

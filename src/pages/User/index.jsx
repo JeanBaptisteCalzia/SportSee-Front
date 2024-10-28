@@ -1,4 +1,4 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
@@ -20,11 +20,10 @@ import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../utils/Context";
 
 function User() {
-  // const params = useParams();
-  // const userId = params.id;
+  const params = useParams();
+  const userId = params.id;
 
   const { toggleId, swithToggleId } = useContext(ThemeContext);
-  const userId = toggleId ? "12" : "18";
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);

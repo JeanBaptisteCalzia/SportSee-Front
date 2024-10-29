@@ -57,7 +57,7 @@ function Score({ todayScore, data, score }) {
 }
 
 Score.propTypes = {
-  todayScore: PropTypes.number.isRequired,
+  todayScore: PropTypes.number,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   score: PropTypes.number,
 };

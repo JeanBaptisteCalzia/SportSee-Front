@@ -8,6 +8,7 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function Performance({ data }) {
   const reversedArray = data[0].data.slice().reverse();
@@ -60,5 +61,9 @@ function Performance({ data }) {
     </section>
   );
 }
+
+Performance.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Performance;

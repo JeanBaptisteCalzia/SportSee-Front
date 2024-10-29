@@ -1,31 +1,16 @@
-#id .toggle__btn {
-  background-color: #282d30;
-  border: 0;
-  border-radius: 50px;
-  cursor: pointer;
-  height: 1.5rem;
-  position: relative;
-  width: 2.75rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: relative;
-}
-
-#api .toggle__btn {
-  background-color: #ccc;
-  border: 0;
-  border-radius: 50px;
-  cursor: pointer;
-  height: 1.5rem;
-  position: relative;
-  width: 4.25rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: relative;
-}
-
 #id {
   .toggle__btn {
+    background-color: #282d30;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 1.5rem;
+    position: relative;
+    width: 2.75rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+
     &::after {
       content: "18";
       color: white;
@@ -36,10 +21,35 @@
       font-weight: 600;
     }
   }
+
+  .toggle__btn.on {
+    background-color: #e60000;
+
+    &::after {
+      content: "12";
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      position: absolute;
+      top: 5px;
+      left: 4px;
+    }
+  }
 }
 
 #api {
   .toggle__btn {
+    background-color: #ccc;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 1.5rem;
+    position: relative;
+    width: 4.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+
     &::after {
       content: "Mock";
       color: #777;
@@ -49,6 +59,24 @@
       font-size: 0.85rem;
       font-weight: 600;
     }
+  }
+
+  .toggle__btn.on {
+    background-color: green;
+
+    &::after {
+      content: "Api";
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      position: absolute;
+      top: 5px;
+      left: -20px;
+    }
+  }
+
+  .toggle__btn.on .pin {
+    left: 3rem;
   }
 }
 
@@ -71,46 +99,8 @@
   transition: all 0.3s ease-in-out;
 }
 
-#id {
-  .toggle__btn.on {
-    background-color: #e60000;
-
-    &::after {
-      content: "12";
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: white;
-      position: absolute;
-      top: 5px;
-      left: 4px;
-    }
-  }
-}
-
-#api {
-  .toggle__btn.on {
-    background-color: green;
-
-    &::after {
-      content: "Api";
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: white;
-      position: absolute;
-      top: 5px;
-      left: -20px;
-    }
-  }
-}
-
 .toggle__btn.on .pin {
   left: 1.5rem;
-}
-
-#api {
-  .toggle__btn.on .pin {
-    left: 3rem;
-  }
 }
 
 .toggle {

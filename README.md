@@ -11,8 +11,8 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 
 ### 1.2 Dependencies
 
-- [React](https://fr.react.dev/) : ^18.3.1
-- [React-router-dom](https://reactrouter.com/en/main) : ^6.27.0
+- [React](https://fr.react.dev/): ^18.3.1
+- [React-router-dom](https://reactrouter.com/en/main): ^6.27.0
 - [Recharts](https://recharts.org/en-US/): ^2.13.0
 - [Sass](https://sass-lang.com/): ^1.80.4
 - [Prop-types](https://www.npmjs.com/package/prop-types): ^15.8.1

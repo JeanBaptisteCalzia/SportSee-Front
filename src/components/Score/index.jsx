@@ -1,6 +1,7 @@
 import "./score.scss";
 import React from "react";
 import { ResponsiveContainer, Label, PieChart, Pie, Cell } from "recharts";
+import PropTypes from "prop-types";
 
 function Score({ todayScore, data, score }) {
   return (
@@ -54,5 +55,11 @@ function Score({ todayScore, data, score }) {
     </section>
   );
 }
+
+Score.propTypes = {
+  todayScore: PropTypes.number.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  score: PropTypes.number,
+};
 
 export default Score;

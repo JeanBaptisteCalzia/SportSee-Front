@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   ReferenceArea,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function AverageSessions({ data }) {
   const CustomTooltip = ({ active, payload }) => {
@@ -124,5 +125,9 @@ function AverageSessions({ data }) {
     </section>
   );
 }
+
+AverageSessions.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default AverageSessions;

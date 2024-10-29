@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../utils/Context";
 import { ApiContext } from "../../utils/Context";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ToggleBtn = ({ id, label, onClick }) => {
   const { toggleId, swithToggleId } = useContext(ThemeContext);
@@ -58,6 +59,12 @@ const ToggleBtn = ({ id, label, onClick }) => {
       </div>
     );
   }
+};
+
+ToggleBtn.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ToggleBtn;

@@ -25,8 +25,8 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 1. The yarn command will allow you to install the dependencies.
 1. The yarn dev command will allow you to run the micro API.
 
-**Installing and launching the front-end: :**
+**Installing and launching the front-end :**
 
 1. Clone the front-end repository : https://github.com/JeanBaptisteCalzia/SportSee-Front.git
 1. The npm install command will allow you to install the dependencies.
-1. The npm run dev command will allow you to run the Dashboard
+1. The npm run dev command will allow you to run the Dashboard.

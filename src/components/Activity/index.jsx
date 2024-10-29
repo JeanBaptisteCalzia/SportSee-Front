@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
+import PropTypes from "prop-types";
 function Activity({ data }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -85,5 +85,9 @@ function Activity({ data }) {
     </section>
   );
 }
+
+Activity.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Activity;

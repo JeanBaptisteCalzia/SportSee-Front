@@ -1,4 +1,4 @@
-# SportSee-Front
+# SportSee
 
 ## 1. Installation
 

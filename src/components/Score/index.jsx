@@ -3,6 +3,13 @@ import React from "react";
 import { ResponsiveContainer, Label, PieChart, Pie, Cell } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Render PieChart with Recharts
+ * @param { Array.<Object> } data
+ * @param { Number } todayScore The score of the day as an integer
+ * @param { Number } score The score of the day as an integer
+ * @return { JSX.Element }
+ */
 function Score({ todayScore, data, score }) {
   return (
     <section className="score">

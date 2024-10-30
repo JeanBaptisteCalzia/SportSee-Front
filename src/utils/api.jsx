@@ -3,6 +3,12 @@ import { userPerformance } from "../datas/dataMocked";
 import { userAverageSessions } from "../datas/dataMocked";
 import { userActivity } from "../datas/dataMocked";
 
+/**
+ * Fetch data from Api if apiDatas is set on true, otherwise fetch data from mocked data
+ * @param { String } userId
+ * @param { Boolean } apiDatas
+ * @return { Array.<Object> }
+ */
 export async function fetchUserMainData(userId, apiDatas) {
   if (!apiDatas) {
     return (
@@ -12,6 +18,8 @@ export async function fetchUserMainData(userId, apiDatas) {
   } else {
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const responseData = await response.json();
+
+    // Format the data
     const arrayMainData = [];
     arrayMainData.push(responseData.data);
     return arrayMainData;
@@ -29,6 +37,8 @@ export async function fetchUserPerformance(userId, apiDatas) {
       `http://localhost:3000/user/${userId}/performance`
     );
     const responseData = await response.json();
+
+    // Format the data
     const arrayPerformance = [];
     arrayPerformance.push(responseData.data);
     return arrayPerformance;
@@ -46,6 +56,8 @@ export async function fetchUserAverageSessions(userId, apiDatas) {
       `http://localhost:3000/user/${userId}/average-sessions`
     );
     const responseData = await response.json();
+
+    // Format the data
     const arrayAverageSessions = [];
     arrayAverageSessions.push(responseData.data);
     return arrayAverageSessions;
@@ -63,6 +75,8 @@ export async function fetchUserActivity(userId, apiDatas) {
       `http://localhost:3000/user/${userId}/activity`
     );
     const responseData = await response.json();
+
+    // Format the data
     const arrayActivity = [];
     arrayActivity.push(responseData.data);
     return arrayActivity;

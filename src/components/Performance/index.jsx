@@ -10,7 +10,13 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Render RadarChart with Recharts
+ * @param { Array.<Object> } data
+ * @return { JSX.Element }
+ */
 function Performance({ data }) {
+  // Reverse order of kind
   const reversedArray = data[0].data.slice().reverse();
 
   if (data[0].data["0"].kind == "1") {

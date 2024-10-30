@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * Render Social page
+ * @return { JSX.Element }
+ */
+
 function Social() {
   return (
     <main>

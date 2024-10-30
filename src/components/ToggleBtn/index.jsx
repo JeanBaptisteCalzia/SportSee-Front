@@ -5,6 +5,15 @@ import { ApiContext } from "../../utils/Context";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+/**
+ * Render a toggleBtn component
+ * @typedef {object} ToggleBtnProps
+ * @property {string} id The id Should be "id" (toggle between user) or "api" (toggle between datas from api or mocked)
+ * @property {string} [label] Optional title of toggle btn
+ * @property {function} onClick The click event handler
+ * @return { JSX.Element }
+ */
+
 const ToggleBtn = ({ id, label, onClick }) => {
   const { toggleId, swithToggleId } = useContext(ThemeContext);
   const userId = toggleId ? "12" : "18";

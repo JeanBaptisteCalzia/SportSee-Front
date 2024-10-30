@@ -11,6 +11,11 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Render LineChart with Recharts
+ * @param { Array.<Object> } data
+ * @return { JSX.Element }
+ */
 function AverageSessions({ data }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -24,6 +29,11 @@ function AverageSessions({ data }) {
 
   const today = data[0].sessions.map((d) => d.day);
 
+  /**
+   * Display Days instead of number on XAxis
+   * @param { Number } value Value of the days sa an integer
+   * @return { String }
+   */
   function formatXAxis(value) {
     switch (value) {
       case 1:

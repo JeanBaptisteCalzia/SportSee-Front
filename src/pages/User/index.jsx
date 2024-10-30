@@ -20,6 +20,11 @@ import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../utils/Context";
 import { ApiContext } from "../../utils/Context";
 
+/**
+ * Render User page
+ * @return { JSX.Element }
+ */
+
 function User() {
   const params = useParams();
   const userId = params.id;
@@ -41,6 +46,7 @@ function User() {
   useEffect(() => {
     setIsLoading(true);
 
+    // Fetch data from Api or mocked data
     async function fetchData() {
       try {
         const responseMainData = await fetchUserMainData(userId, apiDatas);
@@ -70,10 +76,12 @@ function User() {
     fetchData();
   }, [userId]);
 
+  // If the data is loading display a loader
   if (isLoading) {
     return <Loader />;
   }
 
+  // If the data from Api and mocked data returns error display an error message
   if (error) {
     return <Error />;
   }

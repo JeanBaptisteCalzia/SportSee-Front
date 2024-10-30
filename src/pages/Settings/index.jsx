@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * Render Settings page
+ * @return { JSX.Element }
+ */
+
 function Settings() {
   return (
     <main>

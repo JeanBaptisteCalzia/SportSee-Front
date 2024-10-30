@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Render Error 404 content
+ * @return { JSX.Element }
+ */
+
 function Error() {
   return (
     <main>

@@ -6,6 +6,11 @@ import iconCycling from "../../assets/icon/cycling.svg";
 import iconDumbbell from "../../assets/icon/dumbbell.svg";
 import "./sideBar.scss";
 
+/**
+ * Render Sidebar with secondary navigation and copyright
+ * @return { JSX.Element }
+ */
+
 function SideBar() {
   return (
     <aside className="side-bar">

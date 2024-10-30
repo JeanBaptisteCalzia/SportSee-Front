@@ -6,6 +6,12 @@ import { ThemeContext } from "../../utils/Context";
 
 import "./nav.scss";
 
+/**
+ * Render Header with logo and main navbar
+ * User's page depend of the toggleId state from the Context
+ * @return { JSX.Element }
+ */
+
 function Header() {
   const { toggleId, swithToggleId } = useContext(ThemeContext);
   const userId = toggleId ? "12" : "18";

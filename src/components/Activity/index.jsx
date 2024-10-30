@@ -10,6 +10,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import PropTypes from "prop-types";
+
+/**
+ * Render BarChart with Recharts
+ * @param { Array.<Object> } data
+ * @return { JSX.Element }
+ */
 function Activity({ data }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -22,6 +28,7 @@ function Activity({ data }) {
     }
   };
 
+  // Display only days on XAxis
   for (let i = 0; i < data[0].sessions.length; i++) {
     data[0].sessions[i].day = data[0].sessions[i].day.slice(-1);
   }

@@ -2,6 +2,16 @@ import React from "react";
 import "./keyData.scss";
 import PropTypes from "prop-types";
 
+/**
+ * Render a card component with image and text
+ * @typedef {object} KeyDataProps
+ * @property {Number} keyData The count of keyData as an integer (calorieCount, proteinCount, carbohydrateCount, lipidCount )
+ * @property {string} icon
+ * @property {string} title
+ * @property {string} [style] Optional class name (Icon background color)
+ * @property {string} unit
+ * @return { JSX.Element }
+ */
 function KeyData({ keyData, icon, title, style, unit }) {
   const options = { maximumFractionDigits: 2 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./utils/Context/";
-import { ApiProvider } from "./utils/Context/";
+import { ApiProvider, UserProvider } from "./utils/Context/";
 import Header from "./components/Header/";
 import SideBar from "./components/SideBar/";
 import Error from "./components/Error/";
@@ -15,7 +14,7 @@ function App() {
   return (
     <Router>
       <ApiProvider>
-        <ThemeProvider>
+        <UserProvider>
           <Header />
           <div className="wrapper">
             <SideBar />
@@ -27,7 +26,7 @@ function App() {
               <Route path="*" element={<Error />} />
             </Routes>
           </div>
-        </ThemeProvider>
+        </UserProvider>
       </ApiProvider>
     </Router>
   );

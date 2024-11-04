@@ -1,31 +1,32 @@
 import React, { useState, createContext } from "react";
-export const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [toggleId, setToggleId] = useState(true);
+export const UserContext = createContext();
+export const UserProvider = ({ children }) => {
+  const [userId, setUserId] = useState(12);
 
-  const swithToggleId = () => {
-    setToggleId(!toggleId);
+  const initUserIdInContext = (id) => {
+    if (id == 12 || id == 18) {
+      setUserId(id);
+    }
+  };
+
+  const swithUserId = () => {
+    setUserId(userId === 12 ? 18 : 12);
   };
 
   return (
-    <ThemeContext.Provider value={{ toggleId, swithToggleId }}>
+    <UserContext.Provider value={{ userId, initUserIdInContext, swithUserId }}>
       {children}
-    </ThemeContext.Provider>
+    </UserContext.Provider>
   );
 };
 
 export const ApiContext = createContext();
-
 export const ApiProvider = ({ children }) => {
-  const [datas, setDatas] = useState(true);
-
-  const updateDatas = () => {
-    setDatas(!datas);
-  };
+  const [data, setData] = useState(false);
 
   return (
-    <ApiContext.Provider value={{ datas, updateDatas }}>
+    <ApiContext.Provider value={{ data, setData }}>
       {children}
     </ApiContext.Provider>
   );

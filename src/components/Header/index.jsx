@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { ThemeContext } from "../../utils/Context";
+import { UserContext } from "../../utils/Context";
 
 import "./nav.scss";
 
@@ -13,8 +13,7 @@ import "./nav.scss";
  */
 
 function Header() {
-  const { toggleId, swithToggleId } = useContext(ThemeContext);
-  const userId = toggleId ? "12" : "18";
+  const { userId } = useContext(UserContext);
 
   return (
     <nav>

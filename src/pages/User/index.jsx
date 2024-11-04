@@ -17,8 +17,7 @@ import { fetchUserPerformance } from "../../utils/api";
 import { fetchUserAverageSessions } from "../../utils/api";
 
 import { useEffect, useState, useContext } from "react";
-import { ThemeContext } from "../../utils/Context";
-import { ApiContext } from "../../utils/Context";
+import { ApiContext, UserContext } from "../../utils/Context";
 
 /**
  * Render User page
@@ -27,11 +26,10 @@ import { ApiContext } from "../../utils/Context";
 
 function User() {
   const params = useParams();
-  const userId = params.id;
+  const idInUrl = params.id;
 
-  const { toggleId, swithToggleId } = useContext(ThemeContext);
-  const { datas, updateDatas } = useContext(ApiContext);
-  const apiDatas = datas ? true : false;
+  const { data, setData } = useContext(ApiContext);
+  const { userId, initUserIdInContext, swithUserId } = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -44,26 +42,24 @@ function User() {
   );
 
   useEffect(() => {
-    setIsLoading(true);
+    initUserIdInContext(idInUrl);
 
+    setIsLoading(true);
     // Fetch data from Api or mocked data
     async function fetchData() {
       try {
-        const responseMainData = await fetchUserMainData(userId, apiDatas);
+        const responseMainData = await fetchUserMainData(userId, data);
         setCurrentUser(responseMainData);
 
-        const responseActivity = await fetchUserActivity(userId, apiDatas);
+        const responseActivity = await fetchUserActivity(userId, data);
         setCurrentUserActivity(responseActivity);
 
-        const responsePerformance = await fetchUserPerformance(
-          userId,
-          apiDatas
-        );
+        const responsePerformance = await fetchUserPerformance(userId, data);
         setCurrentUserPerformance(responsePerformance);
 
         const responseAverageSessions = await fetchUserAverageSessions(
           userId,
-          apiDatas
+          data
         );
         setCurrentUserAverageSessions(responseAverageSessions);
       } catch (err) {
@@ -74,7 +70,7 @@ function User() {
       }
     }
     fetchData();
-  }, [userId]);
+  }, [userId, data]);
 
   // If the data is loading display a loader
   if (isLoading) {
@@ -86,8 +82,8 @@ function User() {
     return <Error />;
   }
 
-  const currentId = toggleId ? "12" : "18";
-  if (currentId !== userId) {
+  // If the id in url is not 12 or 18 display an error message
+  if (idInUrl !== userId) {
     return <Error />;
   } else {
     return (
@@ -98,15 +94,11 @@ function User() {
               <h1>
                 Bonjour <span>{userInfos.firstName}</span>
               </h1>
-              <ToggleBtn
-                id="id"
-                label="Id"
-                onClick={() => swithToggleId(!toggleId)}
-              />
+              <ToggleBtn id="id" label="Id" onClick={() => swithUserId()} />
               <ToggleBtn
                 id="api"
                 label="Datas"
-                onClick={() => updateDatas(!datas)}
+                onClick={() => setData(!data)}
               />
 
               <p className="lead">

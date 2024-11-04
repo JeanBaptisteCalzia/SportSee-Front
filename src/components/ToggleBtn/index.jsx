@@ -1,7 +1,6 @@
 import "./toggleBtn.scss";
 import { useContext } from "react";
-import { ThemeContext } from "../../utils/Context";
-import { ApiContext } from "../../utils/Context";
+import { ApiContext, UserContext } from "../../utils/Context";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -15,22 +14,19 @@ import PropTypes from "prop-types";
  */
 
 const ToggleBtn = ({ id, label, onClick }) => {
-  const { toggleId, swithToggleId } = useContext(ThemeContext);
-  const userId = toggleId ? "12" : "18";
-
-  const { datas, updateDatas } = useContext(ApiContext);
-  const useApi = datas ? true : false;
+  const { userId } = useContext(UserContext);
+  const { data } = useContext(ApiContext);
 
   if (id === "id") {
     return (
       <div id="id" className="toggle">
         <span className="toggle__title">{label} :</span>
 
-        {toggleId ? (
+        {userId == 12 ? (
           <Link
             to={`/user/18`}
             onClick={onClick}
-            className={`toggle__btn ${toggleId ? "on" : "off"}`}
+            className={`toggle__btn ${userId == 12 ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </Link>
@@ -38,7 +34,7 @@ const ToggleBtn = ({ id, label, onClick }) => {
           <Link
             to={`/user/12`}
             onClick={onClick}
-            className={`toggle__btn ${toggleId ? "on" : "off"}`}
+            className={`toggle__btn ${userId == 12 ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </Link>
@@ -50,17 +46,17 @@ const ToggleBtn = ({ id, label, onClick }) => {
       <div id="api" className="toggle">
         <span className="toggle__title">{label} :</span>
 
-        {datas ? (
+        {data ? (
           <button
             onClick={onClick}
-            className={`toggle__btn ${datas ? "on" : "off"}`}
+            className={`toggle__btn ${data ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </button>
         ) : (
           <button
             onClick={onClick}
-            className={`toggle__btn ${datas ? "on" : "off"}`}
+            className={`toggle__btn ${data ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </button>

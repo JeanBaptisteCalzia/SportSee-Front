@@ -4,13 +4,13 @@ import { userAverageSessions } from "../datas/dataMocked";
 import { userActivity } from "../datas/dataMocked";
 
 /**
- * Fetch data from Api if apiDatas is set on true, otherwise fetch data from mocked data
- * @param { String } userId
- * @param { Boolean } apiDatas
+ * Fetch data from Api if apiData is set on true, otherwise fetch data from mocked data
+ * @param { Number } userId  Id of the user as an integer
+ * @param { Boolean } apiData If set on true load data from API otherwise from Mocked data
  * @return { Array.<Object> }
  */
-export async function fetchUserMainData(userId, apiDatas) {
-  if (!apiDatas) {
+export async function fetchUserMainData(userId, apiData) {
+  if (!apiData) {
     return (
       userMainData &&
       userMainData.filter((user) => user.id === parseInt(userId))
@@ -26,8 +26,8 @@ export async function fetchUserMainData(userId, apiDatas) {
   }
 }
 
-export async function fetchUserPerformance(userId, apiDatas) {
-  if (!apiDatas) {
+export async function fetchUserPerformance(userId, apiData) {
+  if (!apiData) {
     return (
       userPerformance &&
       userPerformance.filter((user) => user.userId === parseInt(userId))
@@ -45,8 +45,8 @@ export async function fetchUserPerformance(userId, apiDatas) {
   }
 }
 
-export async function fetchUserAverageSessions(userId, apiDatas) {
-  if (!apiDatas) {
+export async function fetchUserAverageSessions(userId, apiData) {
+  if (!apiData) {
     return (
       userAverageSessions &&
       userAverageSessions.filter((user) => user.userId === parseInt(userId))
@@ -64,8 +64,8 @@ export async function fetchUserAverageSessions(userId, apiDatas) {
   }
 }
 
-export async function fetchUserActivity(userId, apiDatas) {
-  if (!apiDatas) {
+export async function fetchUserActivity(userId, apiData) {
+  if (!apiData) {
     return (
       userActivity &&
       userActivity.filter((user) => user.userId === parseInt(userId))

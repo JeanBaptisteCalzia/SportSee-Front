@@ -7,6 +7,8 @@ export const UserProvider = ({ children }) => {
   const initUserIdInContext = (id) => {
     if (id == 12 || id == 18) {
       setUserId(id);
+    } else {
+      setUserId(12);
     }
   };
 

@@ -18,13 +18,15 @@ function App() {
           <Header />
           <div className="wrapper">
             <SideBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/user/:id" element={<User />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/social" element={<Social />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
+            <section className="main-content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/user/:id" element={<User />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/social" element={<Social />} />
+                <Route path="*" element={<Error />} />
+              </Routes>
+            </section>
           </div>
         </UserProvider>
       </ApiProvider>

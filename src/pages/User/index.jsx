@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import TopBar from "../../components/TopBar/";
 import Error from "../../components/Error";
 import KeyData from "../../components/KeyData";
 import Score from "../../components/Score";
@@ -9,7 +10,6 @@ import iconEnergy from "../../assets/icon/energy.svg";
 import iconChicken from "../../assets/icon/chicken.svg";
 import iconApple from "../../assets/icon/apple.svg";
 import iconCheeseburger from "../../assets/icon/cheeseburger.svg";
-import ToggleBtn from "../../components/ToggleBtn";
 import Loader from "../../components/Loader";
 import { fetchUserMainData } from "../../utils/api";
 import { fetchUserActivity } from "../../utils/api";
@@ -69,6 +69,7 @@ function User() {
         setIsLoading(false);
       }
     }
+
     fetchData();
   }, [userId, data]);
 
@@ -82,11 +83,9 @@ function User() {
     return <Error />;
   }
 
-  // If the id in url is not 12 or 18 display an error message
-  if (idInUrl !== userId) {
-    return <Error />;
-  } else {
-    return (
+  return (
+    <>
+      <TopBar />
       <main>
         {currentUser.map(({ id, userInfos, keyData, todayScore, score }) => (
           <div key={id}>
@@ -94,13 +93,6 @@ function User() {
               <h1>
                 Bonjour <span>{userInfos.firstName}</span>
               </h1>
-              <ToggleBtn id="id" label="Id" onClick={() => swithUserId()} />
-              <ToggleBtn
-                id="api"
-                label="Datas"
-                onClick={() => setData(!data)}
-              />
-
               <p className="lead">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏
               </p>
@@ -164,8 +156,8 @@ function User() {
           </div>
         ))}
       </main>
-    );
-  }
+    </>
+  );
 }
 
 export default User;

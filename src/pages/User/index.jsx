@@ -15,7 +15,6 @@ import { fetchUserMainData } from "../../utils/api";
 import { fetchUserActivity } from "../../utils/api";
 import { fetchUserPerformance } from "../../utils/api";
 import { fetchUserAverageSessions } from "../../utils/api";
-
 import { useEffect, useState, useContext } from "react";
 import { ApiContext, UserContext } from "../../utils/Context";
 
@@ -28,8 +27,8 @@ function User() {
   const params = useParams();
   const idInUrl = params.id;
 
-  const { data, setData } = useContext(ApiContext);
-  const { userId, initUserIdInContext, swithUserId } = useContext(UserContext);
+  const { data } = useContext(ApiContext);
+  const { userId, initUserIdInContext } = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);

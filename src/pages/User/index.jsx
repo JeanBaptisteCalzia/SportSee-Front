@@ -41,7 +41,7 @@ function User() {
   );
 
   useEffect(() => {
-    initUserIdInContext(idInUrl);
+    initUserIdInContext(parseInt(idInUrl));
 
     setIsLoading(true);
     // Fetch data from Api or mocked data

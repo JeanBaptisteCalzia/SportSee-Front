@@ -1,32 +1,28 @@
 import "./toggleBtn.scss";
-import { useContext } from "react";
-import { ApiContext, UserContext } from "../../utils/Context";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 /**
  * Render a toggleBtn component
- * @typedef {object} ToggleBtnProps
- * @property {string} id The id Should be "id" (toggle between user) or "api" (toggle between datas from api or mocked)
- * @property {string} [label] Optional title of toggle btn
- * @property {function} onClick The click event handler
+ * @typedef {Object} ToggleBtnProps
+ * @property {String} id The id Should be "id" (toggle between user) or "api" (toggle between datas from api or mocked)
+ * @property {String} [label] Optional title of toggle btn
+ * @property {Function} onClick The click event handler
+ * @property { (Boolean | String) } data Boolean for ToggleBtn with id = API, Number for ToggleBtn with id = id
  * @return { JSX.Element }
  */
 
-const ToggleBtn = ({ id, label, onClick }) => {
-  const { userId } = useContext(UserContext);
-  const { data } = useContext(ApiContext);
-
+const ToggleBtn = ({ id, label, onClick, data }) => {
   if (id === "id") {
     return (
       <div id="id" className="toggle">
         <span className="toggle__title">{label} :</span>
 
-        {userId == 12 ? (
+        {data == 12 ? (
           <Link
             to={`/user/18`}
             onClick={onClick}
-            className={`toggle__btn ${userId == 12 ? "on" : "off"}`}
+            className={`toggle__btn ${data == 12 ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </Link>
@@ -34,7 +30,7 @@ const ToggleBtn = ({ id, label, onClick }) => {
           <Link
             to={`/user/12`}
             onClick={onClick}
-            className={`toggle__btn ${userId == 12 ? "on" : "off"}`}
+            className={`toggle__btn ${data == 12 ? "on" : "off"}`}
           >
             <span className="pin"></span>
           </Link>
@@ -70,6 +66,7 @@ ToggleBtn.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   onClick: PropTypes.func.isRequired,
+  data: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
 };
 
 export default ToggleBtn;

@@ -11,12 +11,22 @@ import "./topBar.scss";
 
 function TopBar() {
   const { data, setData } = useContext(ApiContext);
-  const { userId, initUserIdInContext, swithUserId } = useContext(UserContext);
+  const { userId, swithUserId } = useContext(UserContext);
 
   return (
     <section className="top-bar">
-      <ToggleBtn id="api" label="Datas" onClick={() => setData(!data)} />
-      <ToggleBtn id="id" label="Id" onClick={() => swithUserId()} />
+      <ToggleBtn
+        id="api"
+        label="Datas"
+        onClick={() => setData(!data)}
+        data={data}
+      />
+      <ToggleBtn
+        id="id"
+        label="Id"
+        onClick={() => swithUserId()}
+        data={userId}
+      />
     </section>
   );
 }

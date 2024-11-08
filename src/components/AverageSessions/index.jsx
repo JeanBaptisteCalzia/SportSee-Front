@@ -31,7 +31,7 @@ function AverageSessions({ data }) {
 
   /**
    * Display Days instead of number on XAxis
-   * @param { Number } value Value of the days sa an integer
+   * @param { Number } value Value of the days as an integer
    * @return { String }
    */
   function formatXAxis(value) {
@@ -56,9 +56,9 @@ function AverageSessions({ data }) {
 
   const [day, setDay] = useState(null);
   const onMouseMove = (hoveredData) => {
-    const hoveredX = hoveredData.activePayload[0].payload.day;
-    const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
     if (hoveredData && hoveredData.activePayload) {
+      const hoveredX = hoveredData.activePayload[0].payload.day;
+      const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
       setDay(index + 1);
     }
   };

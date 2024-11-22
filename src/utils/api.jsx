@@ -9,6 +9,9 @@ import { userActivity } from "../datas/dataMocked";
  * @param { Boolean } apiData If set on true load data from API otherwise from Mocked data
  * @return { Array.<Object> }
  */
+
+const apiPath = "http://localhost:3000/user/";
+
 export async function fetchUserMainData(userId, apiData) {
   if (!apiData) {
     return (
@@ -16,7 +19,7 @@ export async function fetchUserMainData(userId, apiData) {
       userMainData.filter((user) => user.id === parseInt(userId))
     );
   } else {
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
+    const response = await fetch(`${apiPath}${userId}`);
     const responseData = await response.json();
 
     // Format the data
@@ -33,9 +36,7 @@ export async function fetchUserPerformance(userId, apiData) {
       userPerformance.filter((user) => user.userId === parseInt(userId))
     );
   } else {
-    const response = await fetch(
-      `http://localhost:3000/user/${userId}/performance`
-    );
+    const response = await fetch(`${apiPath}${userId}/performance`);
     const responseData = await response.json();
 
     // Format the data
@@ -52,9 +53,7 @@ export async function fetchUserAverageSessions(userId, apiData) {
       userAverageSessions.filter((user) => user.userId === parseInt(userId))
     );
   } else {
-    const response = await fetch(
-      `http://localhost:3000/user/${userId}/average-sessions`
-    );
+    const response = await fetch(`${apiPath}${userId}/average-sessions`);
     const responseData = await response.json();
 
     // Format the data
@@ -71,9 +70,7 @@ export async function fetchUserActivity(userId, apiData) {
       userActivity.filter((user) => user.userId === parseInt(userId))
     );
   } else {
-    const response = await fetch(
-      `http://localhost:3000/user/${userId}/activity`
-    );
+    const response = await fetch(`${apiPath}${userId}/activity`);
     const responseData = await response.json();
 
     // Format the data

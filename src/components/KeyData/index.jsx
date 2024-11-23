@@ -1,4 +1,3 @@
-import React from "react";
 import "./keyData.scss";
 import PropTypes from "prop-types";
 
@@ -37,7 +36,7 @@ function KeyData({ keyData, icon, title, style, unit }) {
 }
 
 KeyData.propTypes = {
-  keyData: PropTypes.number.isRequired,
+  keyData: PropTypes.number,
   icon: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   style: PropTypes.string,

@@ -1,5 +1,4 @@
 import "./activity.scss";
-import React from "react";
 import {
   BarChart,
   Bar,
@@ -13,7 +12,7 @@ import PropTypes from "prop-types";
 
 /**
  * Render BarChart with Recharts
- * @param { Array.<Object> } data
+ * @param { Object } data
  * @return { JSX.Element }
  */
 function Activity({ data }) {
@@ -28,11 +27,6 @@ function Activity({ data }) {
     }
   };
 
-  // Display only days on XAxis
-  for (let i = 0; i < data[0].sessions.length; i++) {
-    data[0].sessions[i].day = data[0].sessions[i].day.slice(-1);
-  }
-
   return (
     <section className="activity">
       <div className="activity__title">
@@ -46,7 +40,7 @@ function Activity({ data }) {
         <BarChart
           width={500}
           height={300}
-          data={data[0].sessions}
+          data={data.activity}
           margin={{
             top: 20,
             right: -20,
@@ -94,7 +88,7 @@ function Activity({ data }) {
 }
 
 Activity.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Activity;

@@ -1,5 +1,4 @@
 import "./performance.scss";
-import React from "react";
 import {
   Radar,
   RadarChart,
@@ -12,41 +11,14 @@ import PropTypes from "prop-types";
 
 /**
  * Render RadarChart with Recharts
- * @param { Array.<Object> } data
+ * @param { Object } data
  * @return { JSX.Element }
  */
 function Performance({ data }) {
-  // Reverse order of kind
-  const reversedArray = data[0].data.slice().reverse();
-
-  if (data[0].data["0"].kind == "1") {
-    data[0].data["0"].kind = "Cardio";
-  }
-
-  if (data[0].data["1"].kind == "2") {
-    data[0].data["1"].kind = "Energie";
-  }
-
-  if (data[0].data["2"].kind == "3") {
-    data[0].data["2"].kind = "Endurance";
-  }
-
-  if (data[0].data["3"].kind == "4") {
-    data[0].data["3"].kind = "Force";
-  }
-
-  if (data[0].data["4"].kind == "5") {
-    data[0].data["4"].kind = "Vitesse";
-  }
-
-  if (data[0].data["5"].kind == "6") {
-    data[0].data["5"].kind = "Intensité";
-  }
-
   return (
     <section className="performance">
       <ResponsiveContainer width="100%" height={170}>
-        <RadarChart cx="50%" cy="50%" data={reversedArray}>
+        <RadarChart cx="50%" cy="50%" data={data.performance}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
@@ -69,7 +41,7 @@ function Performance({ data }) {
 }
 
 Performance.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Performance;

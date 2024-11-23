@@ -1,16 +1,13 @@
 import "./score.scss";
-import React from "react";
 import { ResponsiveContainer, Label, PieChart, Pie, Cell } from "recharts";
 import PropTypes from "prop-types";
 
 /**
  * Render PieChart with Recharts
  * @param { Array.<Object> } data
- * @param { Number } todayScore The score of the day as an integer
- * @param { Number } score The score of the day as an integer
  * @return { JSX.Element }
  */
-function Score({ todayScore, data, score }) {
+function Score({ data }) {
   return (
     <section className="score">
       <h2>Score</h2>
@@ -18,24 +15,24 @@ function Score({ todayScore, data, score }) {
         <PieChart width={150} height={150}>
           <Pie
             data={data}
-            dataKey={todayScore ? "todayScore" : "score"}
+            dataKey="score"
             innerRadius={70}
             outerRadius={80}
             cornerRadius={40}
             fill="#E60000"
             startAngle={-270}
-            endAngle={todayScore ? todayScore * 360 - 270 : score * 360 - 270}
+            endAngle={data[0].todayScore * 360 - 270}
           ></Pie>
           <Pie
             data={data}
-            dataKey={todayScore ? "todayScore" : "score"}
+            dataKey="score"
             innerRadius={0}
             outerRadius={70}
             isAnimationActive={false}
           >
             <Cell fill="#fff" stroke="#fff" />;
             <Label
-              value={`${todayScore ? todayScore * 100 : score * 100}%`}
+              value={`${data[0].score}%`}
               position="center"
               fill="black"
               className="score__number"
@@ -64,9 +61,7 @@ function Score({ todayScore, data, score }) {
 }
 
 Score.propTypes = {
-  todayScore: PropTypes.number,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  score: PropTypes.number,
 };
 
 export default Score;

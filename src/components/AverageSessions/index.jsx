@@ -1,5 +1,5 @@
 import "./averageSessions.scss";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 /**
  * Render LineChart with Recharts
- * @param { Array.<Object> } data
+ * @param { Object } data
  * @return { JSX.Element }
  */
 function AverageSessions({ data }) {
@@ -27,39 +27,12 @@ function AverageSessions({ data }) {
     }
   };
 
-  const today = data[0].sessions.map((d) => d.day);
-
-  /**
-   * Display Days instead of number on XAxis
-   * @param { Number } value Value of the days as an integer
-   * @return { String }
-   */
-  function formatXAxis(value) {
-    switch (value) {
-      case 1:
-        return "L";
-      case 2:
-        return "M";
-      case 3:
-        return "M";
-      case 4:
-        return "J";
-      case 5:
-        return "V";
-      case 6:
-        return "S";
-      default:
-        return "D";
-    }
-  }
-  formatXAxis(today);
-
   const [day, setDay] = useState(null);
   const onMouseMove = (hoveredData) => {
     if (hoveredData && hoveredData.activePayload) {
       const hoveredX = hoveredData.activePayload[0].payload.day;
-      const index = data[0].sessions.findIndex((d) => d.day === hoveredX);
-      setDay(index + 1);
+      const index = data.data.findIndex((d) => d.day === hoveredX);
+      setDay(index);
     }
   };
 
@@ -79,7 +52,7 @@ function AverageSessions({ data }) {
         <LineChart
           width="100%"
           height="100%"
-          data={data[0].sessions}
+          data={data.data}
           onMouseMove={onMouseMove}
           onMouseOut={onMouseOut}
         >
@@ -89,7 +62,7 @@ function AverageSessions({ data }) {
             stroke="#fff"
             padding={{ left: 20, right: 20 }}
             opacity={0.5}
-            tickFormatter={formatXAxis}
+            tickFormatter={data.week}
             tickLine={false}
             domain={["dataMin - 100", "dataMax + 100"]}
             margin={{
@@ -137,7 +110,7 @@ function AverageSessions({ data }) {
 }
 
 AverageSessions.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default AverageSessions;

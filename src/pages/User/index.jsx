@@ -82,78 +82,74 @@ function User() {
     return <Error />;
   }
 
+  // Format the data
+  const arrayMainData = [];
+  arrayMainData.push(currentUser);
+
   return (
     <>
       <TopBar />
       <main>
-        {currentUser.map(({ id, userInfos, keyData, todayScore, score }) => (
-          <div key={id}>
-            <section>
-              <h1>
-                Bonjour <span>{userInfos.firstName}</span>
-              </h1>
-              <p className="lead">
-                Félicitation ! Vous avez explosé vos objectifs hier 👏
-              </p>
-            </section>
-            <div className="main">
-              <div className="main__content">
-                <div className="main__content-top">
-                  <Activity data={currentUserActivity} />
-                </div>
-                <div className="main__content-bottom">
-                  <AverageSessions data={currentUserAverageSessions} />
-                  <Performance data={currentUserPerformance} />
-                  <Score
-                    todayScore={todayScore}
-                    score={score}
-                    data={currentUser}
-                  />
-                </div>
-              </div>
-              <aside className="key-data">
-                <ul>
-                  <li className="card">
-                    <KeyData
-                      keyData={keyData.calorieCount}
-                      icon={iconEnergy}
-                      title="Calories"
-                      style="#FBEAEA"
-                      unit="kCal"
-                    />
-                  </li>
-                  <li className="card">
-                    <KeyData
-                      keyData={keyData.proteinCount}
-                      icon={iconChicken}
-                      title="Proteines"
-                      style="#E9F4FB"
-                      unit="g"
-                    />
-                  </li>
-                  <li className="card">
-                    <KeyData
-                      keyData={keyData.carbohydrateCount}
-                      icon={iconApple}
-                      title="Glucides"
-                      style="#FBF6E5"
-                      unit="g"
-                    />
-                  </li>
-                  <li className="card">
-                    <KeyData
-                      keyData={keyData.lipidCount}
-                      icon={iconCheeseburger}
-                      title="Lipides"
-                      style="#FBEAEF"
-                      unit="g"
-                    />
-                  </li>
-                </ul>
-              </aside>
+        <section>
+          <h1>
+            Bonjour <span>{currentUser.firstName}</span>
+          </h1>
+          <p className="lead">
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          </p>
+        </section>
+        <div className="main">
+          <div className="main__content">
+            <div className="main__content-top">
+              <Activity data={currentUserActivity} />
+            </div>
+            <div className="main__content-bottom">
+              <AverageSessions data={currentUserAverageSessions} />
+              <Performance data={currentUserPerformance} />
+              <Score data={arrayMainData} />
             </div>
           </div>
-        ))}
+          <aside className="key-data">
+            <ul>
+              <li className="card">
+                <KeyData
+                  keyData={currentUser.calorieCount}
+                  icon={iconEnergy}
+                  title="Calories"
+                  style="#FBEAEA"
+                  unit="kCal"
+                />
+              </li>
+              <li className="card">
+                <KeyData
+                  keyData={currentUser.proteinCount}
+                  icon={iconChicken}
+                  title="Proteines"
+                  style="#E9F4FB"
+                  unit="g"
+                />
+              </li>
+              <li className="card">
+                <KeyData
+                  keyData={currentUser.carbohydrateCount}
+                  icon={iconApple}
+                  title="Glucides"
+                  style="#FBF6E5"
+                  unit="g"
+                />
+              </li>
+              <li className="card">
+                <KeyData
+                  keyData={currentUser.lipidCount}
+                  icon={iconCheeseburger}
+                  title="Lipides"
+                  style="#FBEAEF"
+                  unit="g"
+                />
+              </li>
+            </ul>
+          </aside>
+        </div>
       </main>
     </>
   );
